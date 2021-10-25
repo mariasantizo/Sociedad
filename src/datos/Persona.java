@@ -1,3 +1,11 @@
+/**
+ * Representa cada persona (es una clase abstracta)
+ * @author mariasantizo
+ * @version 1
+ * @since 1
+ */
+
+
 package datos;
 
 public abstract class Persona {

@@ -1,3 +1,10 @@
+/**
+ * Representa cada reserva de la sociedad (recogerá el socio, la mesa y la fecha de la reserva)
+ * @author mariasantizo
+ * @version 1
+ * @since 1
+ */
+
 package datos;
 
 import java.util.Calendar;

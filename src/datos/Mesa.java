@@ -1,3 +1,10 @@
+/**
+ * Representa cada mesa que se encuentra en la sociedad
+ * @author mariasantizo
+ * @version 1
+ * @since 1
+ */
+
 package datos;
 
 public class Mesa {
