@@ -14,6 +14,13 @@ public class ProgramaPrincipal {
 		Calendar f1 = new GregorianCalendar (2021,10,30,14,0,0);
 		Reserva r1 = new Reserva (s1, m1, f1);
 		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }
