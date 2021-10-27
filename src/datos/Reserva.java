@@ -13,12 +13,14 @@ public class Reserva {
 	private Socio socio;
 	private Mesa mesa;
 	private Calendar fecha;
+	private String horario;
 	
-	public Reserva(Socio socio, Mesa mesa, Calendar fecha) {
+	public Reserva(Socio socio, Mesa mesa, Calendar fecha, String horario) {
 		super();
 		this.socio = socio;
 		this.mesa = mesa;
 		this.fecha = fecha;
+		this.horario = horario;
 	}
 
 	public Socio getSocio() {
@@ -43,6 +45,14 @@ public class Reserva {
 
 	public void setFecha(Calendar fecha) {
 		this.fecha = fecha;
+	}
+
+	public String getHorario() {
+		return horario;
+	}
+
+	public void setHorario(String horario) {
+		this.horario = horario;
 	}
 	
 	
