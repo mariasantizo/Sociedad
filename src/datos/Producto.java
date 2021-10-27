@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * Son los diferentes productos que encontraremos en nuestra sociedad
  * @author malensanz
@@ -6,33 +5,22 @@
  * @since 1
  */
 
-
-=======
->>>>>>> a480201 (Add producto)
 package datos;
 
 public class Producto {
 	private String nombre; 
 	private int codigo; 
 	private TipoProducto tipo;
-<<<<<<< HEAD
 	private double precio;
 	
 	
 	public Producto(String nombre, int codigo, TipoProducto tipo, double precio) {
-=======
 	
-	
-	public Producto(String nombre, int codigo, TipoProducto tipo) {
->>>>>>> a480201 (Add producto)
 		super();
 		this.nombre = nombre;
 		this.codigo = codigo;
 		this.tipo = tipo;
-<<<<<<< HEAD
 		this.precio=precio;
-=======
->>>>>>> a480201 (Add producto)
 	}
 
 
@@ -50,13 +38,6 @@ public class Producto {
 		return codigo;
 	}
 	
-<<<<<<< HEAD
-=======
-	
-	
-
->>>>>>> a480201 (Add producto)
-
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
@@ -70,9 +51,6 @@ public class Producto {
 	public void setTipo(TipoProducto tipo) {
 		this.tipo = tipo;
 	}
-<<<<<<< HEAD
-
-
 	public double getPrecio() {
 		return precio;
 	}
@@ -81,8 +59,5 @@ public class Producto {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-=======
->>>>>>> a480201 (Add producto)
-	
 	
 }
