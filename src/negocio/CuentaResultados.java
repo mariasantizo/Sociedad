@@ -12,13 +12,13 @@ import java.util.Calendar;
 public class CuentaResultados {
 	private int codigo;
 	private Calendar fecha;
-	private float ingresoCuota;
-	private float ingresoReservas;
-	private float gastoCompras;
-	private float otrosGastos;
+	private double ingresoCuota;
+	private double ingresoReservas;
+	private double gastoCompras;
+	private double otrosGastos;
 	
-	public CuentaResultados(int codigo, Calendar fecha, float ingresoCuota, float ingresoReservas, float gastoCompras,
-			float otrosGastos) {
+	public CuentaResultados(int codigo, Calendar fecha, double ingresoCuota, double ingresoReservas, double gastoCompras,
+			double otrosGastos) {
 		super();
 		this.codigo = codigo;
 		this.fecha = fecha;
@@ -44,35 +44,35 @@ public class CuentaResultados {
 		this.fecha = fecha;
 	}
 
-	public float getIngresoCuota() {
+	public double getIngresoCuota() {
 		return ingresoCuota;
 	}
 
-	public void setIngresoCuota(float ingresoCuota) {
+	public void setIngresoCuota(double ingresoCuota) {
 		this.ingresoCuota = ingresoCuota;
 	}
 
-	public float getIngresoReservas() {
+	public double getIngresoReservas() {
 		return ingresoReservas;
 	}
 
-	public void setIngresoReservas(float ingresoReservas) {
+	public void setIngresoReservas(double ingresoReservas) {
 		this.ingresoReservas = ingresoReservas;
 	}
 
-	public float getGastoCompras() {
+	public double getGastoCompras() {
 		return gastoCompras;
 	}
 
-	public void setGastoCompras(float gastoCompras) {
+	public void setGastoCompras(double gastoCompras) {
 		this.gastoCompras = gastoCompras;
 	}
 
-	public float getOtrosGastos() {
+	public double getOtrosGastos() {
 		return otrosGastos;
 	}
 
-	public void setOtrosGastos(float otrosGastos) {
+	public void setOtrosGastos(double otrosGastos) {
 		this.otrosGastos = otrosGastos;
 	}
 

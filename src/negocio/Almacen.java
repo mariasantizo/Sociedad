@@ -17,9 +17,9 @@ public class Almacen {
 	private int codigo;
 	private Calendar fecha;
 	private ArrayList<Producto> productos;
-	private float valor;
+	private double valor;
 	
-	public Almacen(int codigo, Calendar fecha, ArrayList<Producto> productos, float valor) {
+	public Almacen(int codigo, Calendar fecha, ArrayList<Producto> productos, double valor) {
 		super();
 		this.codigo = codigo;
 		this.fecha = fecha;
@@ -51,14 +51,12 @@ public class Almacen {
 		this.productos = productos;
 	}
 
-	public float getValor() {
+	public double getValor() {
 		return valor;
 	}
 
-	public void setValor(float valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
 	
 }
-
-

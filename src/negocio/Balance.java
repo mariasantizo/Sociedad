@@ -12,19 +12,19 @@ import java.util.Calendar;
 public class Balance {
 	private int codigo;
 	private Calendar fecha;
-	private float mobiliario;
-	private float equipos;
+	private double mobiliario;
+	private double equipos;
 	private Almacen almacen;
-	private float clientes;
-	private float caja;
-	private float bancos;
-	private float capitalSocial;
+	private double clientes;
+	private double caja;
+	private double bancos;
+	private double capitalSocial;
 	private CuentaResultados resultado;
-	private float credito;
-	private float proveedores;
+	private double credito;
+	private double proveedores;
 	
-	public Balance(int codigo, Calendar fecha, float mobiliario, float equipos, Almacen almacen, float clientes,
-			float caja, float bancos, float capitalSocial, CuentaResultados resultado, float credito, float proveedores) {
+	public Balance(int codigo, Calendar fecha, double mobiliario, double equipos, Almacen almacen, double clientes,
+			double caja, double bancos, double capitalSocial, CuentaResultados resultado, double credito, double proveedores) {
 		super();
 		this.codigo = codigo;
 		this.fecha = fecha;
@@ -61,22 +61,22 @@ public class Balance {
 	}
 
 
-	public float getMobiliario() {
+	public double getMobiliario() {
 		return mobiliario;
 	}
 
 
-	public void setMobiliario(float mobiliario) {
+	public void setMobiliario(double mobiliario) {
 		this.mobiliario = mobiliario;
 	}
 
 
-	public float getEquipos() {
+	public double getEquipos() {
 		return equipos;
 	}
 
 
-	public void setEquipos(float equipos) {
+	public void setEquipos(double equipos) {
 		this.equipos = equipos;
 	}
 
@@ -91,42 +91,42 @@ public class Balance {
 	}
 
 
-	public float getClientes() {
+	public double getClientes() {
 		return clientes;
 	}
 
 
-	public void setClientes(float clientes) {
+	public void setClientes(double clientes) {
 		this.clientes = clientes;
 	}
 
 
-	public float getCaja() {
+	public double getCaja() {
 		return caja;
 	}
 
 
-	public void setCaja(float caja) {
+	public void setCaja(double caja) {
 		this.caja = caja;
 	}
 
 
-	public float getBancos() {
+	public double getBancos() {
 		return bancos;
 	}
 
 
-	public void setBancos(float bancos) {
+	public void setBancos(double bancos) {
 		this.bancos = bancos;
 	}
 
 
-	public float getCapitalSocial() {
+	public double getCapitalSocial() {
 		return capitalSocial;
 	}
 
 
-	public void setCapitalSocial(float capitalSocial) {
+	public void setCapitalSocial(double capitalSocial) {
 		this.capitalSocial = capitalSocial;
 	}
 
@@ -141,22 +141,22 @@ public class Balance {
 	}
 
 
-	public float getCredito() {
+	public double getCredito() {
 		return credito;
 	}
 
 
-	public void setCredito(float credito) {
+	public void setCredito(double credito) {
 		this.credito = credito;
 	}
 
 
-	public float getProveedores() {
+	public double getProveedores() {
 		return proveedores;
 	}
 
 
-	public void setProveedores(float proveedores) {
+	public void setProveedores(double proveedores) {
 		this.proveedores = proveedores;
 	}
 
