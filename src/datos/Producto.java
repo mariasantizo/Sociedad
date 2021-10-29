@@ -12,10 +12,10 @@ public class Producto {
 	private String nombre; 
 	private int codigo; 
 	private TipoProducto tipo;
-	private float precio;
+	private double precio;
 	
 	
-	public Producto(String nombre, int codigo, TipoProducto tipo, float precio) {
+	public Producto(String nombre, int codigo, TipoProducto tipo, double precio) {
 		super();
 		this.nombre = nombre;
 		this.codigo = codigo;
@@ -54,12 +54,12 @@ public class Producto {
 	}
 
 
-	public float getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
 
-	public void setPrecio(float precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 	
