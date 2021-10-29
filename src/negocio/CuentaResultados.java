@@ -12,7 +12,6 @@ import java.util.Calendar;
 public class CuentaResultados {
 	private int codigo;
 	private Calendar fecha;
-
 	private double ingresoCuota;
 	private double ingresoReservas;
 	private double gastoCompras;

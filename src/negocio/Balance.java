@@ -12,7 +12,6 @@ import java.util.Calendar;
 public class Balance {
 	private int codigo;
 	private Calendar fecha;
-	
 	private double mobiliario;
 	private double equipos;
 	private Almacen almacen;
@@ -26,7 +25,6 @@ public class Balance {
 	
 	public Balance(int codigo, Calendar fecha, double mobiliario, double equipos, Almacen almacen, double clientes,
 			double caja, double bancos, double capitalSocial, CuentaResultados resultado, double credito, double proveedores) {
-
 		super();
 		this.codigo = codigo;
 		this.fecha = fecha;
@@ -71,7 +69,6 @@ public class Balance {
 	public void setMobiliario(double mobiliario) {
 		this.mobiliario = mobiliario;
 	}
-
 	public double getEquipos() {
 		return equipos;
 	}
