@@ -21,6 +21,10 @@ public class Socio extends Persona{
 		this.tipoCuota=tipoCuota;
 	}
 
+	public Socio(String tipoCuota) {
+		super();
+		this.tipoCuota=tipoCuota;
+	}
 
 	public int getNumeroSocio() {
 		return numeroSocio;
