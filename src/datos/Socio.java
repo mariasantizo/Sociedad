@@ -1,13 +1,12 @@
+package datos;
+
+
 /**
  * Desciende de la clase Persona, representa cada socio de la sociedad
  * @author mariasantizo
- * @version 1
+ * @version 2
  * @since 1
  */
-
-
-package datos;
-
 public class Socio extends Persona{
 
 	private int numeroSocio;
@@ -56,7 +55,14 @@ public class Socio extends Persona{
 		this.cuota = cuota;
 	}
 
-
+	
+	
+/**
+	 * Este método calcula la cuota a aportar de cada socio, dependiendo de la frecuencia del pago
+	 * @author mariasantizo
+	 * @version 2
+	 * @since 2
+ */
 	public void calcularCuota() {
 		int cuotaAnual=960;
 		switch (tipoCuota) {
