@@ -11,6 +11,8 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
 
@@ -72,6 +74,10 @@ public class Login extends JFrame {
 		contentPane.add(textFieldContrasena);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAceptar.setBounds(393, 230, 115, 29);
 		contentPane.add(btnAceptar);
 	}

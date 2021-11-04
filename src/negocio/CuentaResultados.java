@@ -16,6 +16,7 @@ public class CuentaResultados {
 	private double ingresoReservas;
 	private double gastoCompras;
 	private double otrosGastos;
+	private double resultado;
 	
 	public CuentaResultados(int codigo, Calendar fecha, double ingresoCuota, double ingresoReservas, double gastoCompras,
 			double otrosGastos) {
@@ -75,5 +76,17 @@ public class CuentaResultados {
 	public void setOtrosGastos(double otrosGastos) {
 		this.otrosGastos = otrosGastos;
 	}
+	
 
+	public double getResultado() {
+		return resultado;
+	}
+
+	public void setResultado(double resultado) {
+		this.resultado = resultado;
+	}
+	
+	public void calcularResultado (){
+		this.setResultado((this.ingresoCuota+this.ingresoReservas)-(this.gastoCompras+this.otrosGastos));
+	}
 }

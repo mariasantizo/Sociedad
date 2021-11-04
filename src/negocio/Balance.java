@@ -1,7 +1,7 @@
 /**
  * Representa el balance de la sociedad, lo usaremos para llevar la contabilidad
  * @author malensanz
- * @version 1
+ * @version 2
  * @since 1
  */
 
@@ -22,6 +22,7 @@ public class Balance {
 	private CuentaResultados resultado;
 	private double credito;
 	private double proveedores;
+	private double valorBalance;
 	
 	public Balance(int codigo, Calendar fecha, double mobiliario, double equipos, Almacen almacen, double clientes,
 			double caja, double bancos, double capitalSocial, CuentaResultados resultado, double credito, double proveedores) {
@@ -154,5 +155,31 @@ public class Balance {
 	public void setProveedores(double proveedores) {
 		this.proveedores = proveedores;
 	}
+	
+	/**
+	 * Calcula el valor del balance, sumamos todas las cuentas del activo y lo cargamos en el atributo valorBalance
+	 * @author malensanz
+	 * @version 2
+	 * @since 2
+	 */
+	
+	public void calcularValorBalance (){
+		this.valorBalance=this.mobiliario+this.equipos+this.clientes+this.almacen.getValor()+this.caja+this.bancos;
+		
+	}
 
+	/**
+	 * Comprueba que el valor total del balance calculado anteriormente coincide con el valor del pasivo y patrimonio neto
+	 * @author malensanz
+	 * @version 2
+	 * @since 2
+	 */
+	
+	public boolean comprobarValor(){
+		if (this.valorBalance==(this.capitalSocial+this.resultado.getResultado()+this.credito+this.proveedores)){
+		return true;
+		}else{
+		return false;
+		}
+	}
 }
