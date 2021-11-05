@@ -24,6 +24,10 @@ public class Socio extends Persona{
 		super();
 		this.tipoCuota=tipoCuota;
 	}
+	
+	public Socio() {
+		super();
+	}
 
 	public int getNumeroSocio() {
 		return numeroSocio;

@@ -1,14 +1,23 @@
 package datos;
 
-public class SocioTest{
+import static org.junit.Assert.assertEquals;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class SocioTest {
+	
+	Socio socio1;
+	
 	@Before
 	public void setUp() {
-		Socio s = new Socio("Anual");
+		socio1 = new Socio();
 	}
 	
 	@After
 	public void tearDown() {
-		Socio s = null;
+		socio1 = null;
 	}
 	
 	@Test
