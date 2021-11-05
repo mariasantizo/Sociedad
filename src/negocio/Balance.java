@@ -156,6 +156,19 @@ public class Balance {
 		this.proveedores = proveedores;
 	}
 	
+	
+	
+	
+	public double getValorBalance() {
+		return valorBalance;
+	}
+
+
+	public void setValorBalance(double valorBalance) {
+		this.valorBalance = valorBalance;
+	}
+
+
 	/**
 	 * Calcula el valor del balance, sumamos todas las cuentas del activo y lo cargamos en el atributo valorBalance
 	 * @author malensanz

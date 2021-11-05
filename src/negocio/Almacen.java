@@ -26,6 +26,13 @@ public class Almacen {
 		this.productos = productos;
 		this.valor = valor;
 	}
+	
+	public Almacen(int codigo, Calendar fecha, ArrayList<Producto> productos) {
+		super();
+		this.codigo = codigo;
+		this.fecha = fecha;
+		this.productos = productos;
+	}
 
 	public int getCodigo() {
 		return codigo;

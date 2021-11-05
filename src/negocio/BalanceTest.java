@@ -30,11 +30,10 @@ public class BalanceTest {
         balance1 = null;
     }
 
- 
-   /* @Test  
+    @Test  
     public void calcularValorBalanceTest (){
     	balance1.calcularValorBalance();
-    	assertTrue(balance1.getResultado()==10000.0);
+    	assertTrue(balance1.getValorBalance()==10000.0);
     	
-    }*/
+    }
 }
