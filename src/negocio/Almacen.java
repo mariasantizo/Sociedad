@@ -1,7 +1,7 @@
 /**
  * Representa el inventario de todos los productos que vamos a tener en la sociedad
- * @author malensanz
- * @version 1
+ * @author malensanz and mariasantizo
+ * @version 2
  * @since 1
  */
 
@@ -57,6 +57,21 @@ public class Almacen {
 
 	public void setValor(double valor) {
 		this.valor = valor;
+	}
+	
+
+/**
+	 * Este método calcula el valor del almacén, sumando todos los precios de todos los productos
+	 * @author mariasantizo
+	 * @version 2
+	 * @since 2
+ */
+	public void calcularAlmacen() {
+		double valor = 0;
+		for (int i=0; i<this.productos.size(); i++) {
+			valor=valor+productos.get(i).getPrecio();
+		}
+		this.valor=valor;
 	}
 	
 }
