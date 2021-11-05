@@ -1,7 +1,7 @@
 /**
  * Representa todos los gastos e ingresos de la sociedad
  * @author malensanz
- * @version 1
+ * @version 2
  * @since 1
  */
 
@@ -85,6 +85,13 @@ public class CuentaResultados {
 	public void setResultado(double resultado) {
 		this.resultado = resultado;
 	}
+	
+	/**
+	 * Calcula el resultado del ejercicio (total ingresos-total gastos)
+	 * @author malensanz
+	 * @version 2
+	 * @since 2
+	 */
 	
 	public void calcularResultado (){
 		this.setResultado((this.ingresoCuota+this.ingresoReservas)-(this.gastoCompras+this.otrosGastos));
