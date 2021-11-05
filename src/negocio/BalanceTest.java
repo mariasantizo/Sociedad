@@ -1,0 +1,40 @@
+package negocio;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import datos.Producto;
+
+public class BalanceTest {
+
+	Balance balance1;
+	
+	@Before
+    public void setUp() {
+		Calendar fecha1 = new GregorianCalendar(2020,12,31);
+		ArrayList<Producto> productos = new ArrayList();
+		CuentaResultados resultado1 = new CuentaResultados(1, fecha1, 2000, 1000, 500, 500);	
+		Almacen almacen1 = new Almacen (1, fecha1, productos, 1000);
+        balance1 = new Balance(1, fecha1, 1000, 1000, almacen1, 1000, 1000, 5000, 5000, resultado1, 2000, 1000);
+    }
+
+    @After
+    public void tearDown() {
+        balance1 = null;
+    }
+
+ 
+   /* @Test  
+    public void calcularValorBalanceTest (){
+    	balance1.calcularValorBalance();
+    	assertTrue(balance1.getResultado()==10000.0);
+    	
+    }*/
+}
