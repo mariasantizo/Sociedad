@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class CreateTable {
 	public static void createTable() {
-		//Conectarse a esta BD
+		//Conectarse a la BD
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
