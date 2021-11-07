@@ -1,6 +1,5 @@
 package presentacion;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,7 +9,6 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.JButton;
-import javax.swing.JRadioButton;
 
 public class Administradores extends JFrame {
 
