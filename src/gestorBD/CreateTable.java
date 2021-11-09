@@ -37,6 +37,11 @@ public class CreateTable {
 				+ " CUOTA NUMBER \n"
 				+ ");";
 		
-		createTable(sql);
+		String sqlTipoProducto = "CREATE TABLE IF NOT EXISTS TIPOPRODUCTO (\n"
+				+ "CODIGO NUMBER PRIMARY KEY, \n"
+				+ "NOMBRE TEXT NOT NULL \n"
+				+ ");";
+		
+		createTable(sqlTipoProducto);
 	}
 }
