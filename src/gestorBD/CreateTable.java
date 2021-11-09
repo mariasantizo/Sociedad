@@ -6,22 +6,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CreateTable {
-	public static void createTable() {
+	public static void createTable(String sql) {
 		//Conectarse a la BD
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
 		//Crear sentencia SQL para creación de tablas
-		String sql = "CREATE TABLE IF NOT EXISTS SOCIO (\n"
-				+ " DNI TEXT PRIMARY KEY, \n"
-				+ " NOMBRE TEXT NOT NULL, \n"
-				+ " APELLIDO TEXT NOT NULL, \n"
-				+ " TELEFONO NUMBER, \n"
-				+ " DIRECCION TEXT, \n"
-				+ " NUMEROSOCIO NUMBER, \n"
-				+ " TIPOCUOTA TEXT, \n"
-				+ " CUOTA NUMBER \n"
-				+ ");";
+		
 		
 		//Hacer conexiones y crear tabla
 		try (Connection conn = DriverManager.getConnection(url);
@@ -35,6 +26,17 @@ public class CreateTable {
 	}
 	
 	public static void main(String[] args) {
-		createTable();
+		String sql = "CREATE TABLE IF NOT EXISTS SOCIO (\n"
+				+ " DNI TEXT PRIMARY KEY, \n"
+				+ " NOMBRE TEXT NOT NULL, \n"
+				+ " APELLIDO TEXT NOT NULL, \n"
+				+ " TELEFONO NUMBER, \n"
+				+ " DIRECCION TEXT, \n"
+				+ " NUMEROSOCIO NUMBER, \n"
+				+ " TIPOCUOTA TEXT, \n"
+				+ " CUOTA NUMBER \n"
+				+ ");";
+		
+		createTable(sql);
 	}
 }

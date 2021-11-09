@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class InsertData {
 	
-	public void insertData(String dni, String nombre, String apellido, int telefono, String direccion, int numeroSocio, String tipoCuota, int cuota) {
+	public void insertSocio(String dni, String nombre, String apellido, int telefono, String direccion, int numeroSocio, String tipoCuota, int cuota) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
@@ -34,7 +34,7 @@ public class InsertData {
 	
 	public static void main(String[] args) {
 		InsertData a = new InsertData();
-		a.insertData("72451234A", "Ana", "Sanchez", 687333222, "Avenida 8", 20, "Anual", 960);
+		a.insertSocio("72451234A", "Ana", "Sanchez", 687333222, "Avenida 8", 20, "Anual", 960);
 	}
 	
 }
