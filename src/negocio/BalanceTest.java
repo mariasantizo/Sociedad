@@ -36,4 +36,5 @@ public class BalanceTest {
     	assertTrue(balance1.getValorBalance()==10000.0);
     	
     }
+    
 }
