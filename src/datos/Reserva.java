@@ -10,18 +10,32 @@ package datos;
 import java.util.Calendar;
 
 public class Reserva {
+	private int codigo;
 	private Socio socio;
 	private Mesa mesa;
 	private Calendar fecha;
 	private String horario;
 	
-	public Reserva(Socio socio, Mesa mesa, Calendar fecha, String horario) {
+	public Reserva(int codigo, Socio socio, Mesa mesa, Calendar fecha, String horario) {
 		super();
+		this.codigo=codigo;
 		this.socio = socio;
 		this.mesa = mesa;
 		this.fecha = fecha;
 		this.horario = horario;
 	}
+	
+	public int getCodigo() {
+		return codigo;
+	}
+
+
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+
 
 	public Socio getSocio() {
 		return socio;
