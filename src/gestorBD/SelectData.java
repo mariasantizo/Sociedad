@@ -37,7 +37,7 @@ public class SelectData {
      */
     public void selectAll()
     {
-        String sql = "SELECT , numeroSocio, tipoCuota, cuota FROM SOCIO";
+        String sql = "SELECT dni, nombre, apellido, telefono, direccion, numeroSocio, tipoCuota, cuota FROM SOCIO";
 
         try
                 (
@@ -52,7 +52,12 @@ public class SelectData {
             {
                 System.out.println
                         (
-                                rs.getInt("numeroSocio") +  "\t" +
+                        		rs.getString("dni") +  "\t" +
+                                rs.getString("nombre") + "\t" +
+                                rs.getString("apellido") + "\t" +
+                                rs.getInt("telefono") + "\t" +
+                                rs.getString("direccion") + "\t" +     
+                        		rs.getInt("numeroSocio") +  "\t" +
                                 rs.getString("tipoCuota") + "\t" +
                                 rs.getInt("cuota")
                         );
