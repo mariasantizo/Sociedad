@@ -36,5 +36,11 @@ public class BalanceTest {
     	assertTrue(balance1.getValorBalance()==10000.0);
     	
     }
-    
+        
+    @Test  
+    public void calcularValorBalanceTest1 (){
+    	balance1.calcularValorBalance();
+    	assertTrue(balance1.getValorBalance()==balance1.getMobiliario()+balance1.getEquipos()+balance1.getClientes()+balance1.getAlmacen().getValor()+balance1.getBancos()+balance1.getCaja());
+    	
+    }
 }

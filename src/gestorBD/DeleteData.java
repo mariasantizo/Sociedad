@@ -34,7 +34,7 @@ public class DeleteData {
      *
      * @param id
      */
-    public void delete(int dni)
+    public void delete(String dni)
     {
         String sql = "DELETE FROM SOCIO WHERE dni = ?";
 
@@ -46,7 +46,7 @@ public class DeleteData {
         {
 
             // set the corresponding param
-            pstmt.setInt(1, dni);
+            pstmt.setString(1, dni);
 
             // execute the delete statement
             pstmt.executeUpdate();
@@ -65,6 +65,6 @@ public class DeleteData {
     {
         DeleteData a = new DeleteData();
         // delete the row with dni 71568188
-        a.delete(71568188);
+        a.delete("72451234A");
     }
 }

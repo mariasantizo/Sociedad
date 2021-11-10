@@ -36,5 +36,11 @@ public class CuentaResultadosTest {
     public void calcularResultadoTest (){
     	cuentaResultado1.calcularResultado();
     	assertTrue(cuentaResultado1.getResultado()==53800.0);
+    }  
+    
+    @Test  
+    public void calcularResultadoTest1 (){
+    	cuentaResultado1.calcularResultado();
+    	assertTrue(cuentaResultado1.getResultado()==cuentaResultado1.getIngresoCuota()+cuentaResultado1.getIngresoReservas()-cuentaResultado1.getGastoCompras()-cuentaResultado1.getOtrosGastos());
     }
 }
