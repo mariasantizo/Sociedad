@@ -4,6 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+
+import datos.Mesa;
+import datos.Producto;
+import datos.Socio;
+import datos.TipoProducto;
+import negocio.Almacen;
+import negocio.CuentaResultados;
 
 public class InsertData {
 	
@@ -68,7 +77,7 @@ public class InsertData {
 	*//**
 	 * inserta Tipos de producto en la BD
 	 * @author malensanz
-	 *//*
+	 */
 	
 	public static void insertTipoProducto(String nombre, int codigo) {
 		String name = "BaseDeDatos.db";
@@ -89,22 +98,24 @@ public class InsertData {
 		}
 	}
 	
-	*//**
+	/**
 	 * inserta productos en la base de datos
 	 * @author malensanz
-	 *//*
+	 */
 	
-	public static void insertTipoProducto(String nombre, int codigo) {
+	public static void insertProducto(String nombre, int codigo, TipoProducto tipoProducto, double precio) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
-		String sql = "INSERT INTO TIPOPRODUCTO VALUES (?, ?)";
+		String sql = "INSERT INTO PRODUCTO VALUES (?, ?, ?, ?)";
 		
 		try (Connection conn = DriverManager.getConnection(url);
 			PreparedStatement pstmt = conn.prepareStatement(sql)){
 			
 			pstmt.setString(1, nombre);
 			pstmt.setInt(2, codigo);
+			//((Object) pstmt).setTipoProducto(3, tipoProducto);
+			pstmt.setDouble(4, precio);
 
 			
 		} catch (SQLException e) {
@@ -112,14 +123,148 @@ public class InsertData {
 			System.out.println(e.getMessage());
 		}
 	}
-	*/
+	
+	public static void insertMesa(int codigoMesa, int capacidad) {
+		String name = "BaseDeDatos.db";
+		String url = "jdbc:sqlite:"+name;
+		
+		String sql = "INSERT INTO MESA VALUES (?, ?)";
+		
+		try (Connection conn = DriverManager.getConnection(url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)){
+			
+			pstmt.setInt(1, codigoMesa);
+			pstmt.setInt(2, capacidad);
+
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	
+	public static void insertReserva(int codigo, Socio socio, Mesa mesa, Calendar fecha, String horario) {
+		String name = "BaseDeDatos.db";
+		String url = "jdbc:sqlite:"+name;
+		
+		String sql = "INSERT INTO RESERVA VALUES (?, ?, ?, ?, ?)";
+		
+		try (Connection conn = DriverManager.getConnection(url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)){
+			
+			pstmt.setInt(1, codigo);
+/*			pstmt.setSocio(2, socio);
+			pstmt.setMesa(3, mesa);
+			pstmt.setCalendar(4, fecha);*/
+			pstmt.setString(5, horario);
+
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static void insertAlmacen(int codigo,Calendar fecha, ArrayList<Producto> productos, double valor) {
+		String name = "BaseDeDatos.db";
+		String url = "jdbc:sqlite:"+name;
+		
+		String sql = "INSERT INTO ALMACEN VALUES (?, ?, ?, ?, ?)";
+		
+		try (Connection conn = DriverManager.getConnection(url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)){
+			
+			pstmt.setInt(1, codigo);
+/*			pstmt.setCalendar(2, fecha);
+			pstmt.setArrayList(3, productos);*/
+			pstmt.setDouble(4, valor);
+
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static void insertProductoAlmacen(int codigoAlmacen, int codigoProducto) {
+		String name = "BaseDeDatos.db";
+		String url = "jdbc:sqlite:"+name;
+		
+		String sql = "INSERT INTO PRODUCTOALMACEN VALUES (?, ?)";
+		
+		try (Connection conn = DriverManager.getConnection(url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)){
+			
+			pstmt.setInt(1, codigoAlmacen);
+			pstmt.setDouble(2, codigoProducto);
+
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public static void insertCuentaResultados(int codigo, Calendar fecha, double ingresoCuota, double ingresoReservas, double gastoCompras, double otrosGastos, double resultado) {
+		String name = "BaseDeDatos.db";
+		String url = "jdbc:sqlite:"+name;
+		
+		String sql = "INSERT INTO CUENTARESULTADOS VALUES (?, ?, ?, ?, ?, ?, ?)";
+		
+		try (Connection conn = DriverManager.getConnection(url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)){
+			
+			pstmt.setInt(1, codigo);
+			//pstmt.setCalendar(2, fecha);
+			pstmt.setDouble(3, ingresoCuota);
+			pstmt.setDouble(4, ingresoReservas);
+			pstmt.setDouble(5, gastoCompras);
+			pstmt.setDouble(6, otrosGastos);
+			pstmt.setDouble(7, resultado);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static void insertBalance(int codigo, Calendar fecha, double mobiliario, double equipos, Almacen almacen, double clientes, double caja, double bancos, double capitalSocial, CuentaResultados resultado, double credito, double proveedores, double valorBalance) {
+		String name = "BaseDeDatos.db";
+		String url = "jdbc:sqlite:"+name;
+		
+		String sql = "INSERT INTO BALANCE VALUES (?, ?, ?, ?, ?, ?, ?)";
+		
+		try (Connection conn = DriverManager.getConnection(url);
+			PreparedStatement pstmt = conn.prepareStatement(sql)){
+			
+			pstmt.setInt(1, codigo);
+			//pstmt.setCalendar(2, fecha);
+			pstmt.setDouble(3, mobiliario);
+			pstmt.setDouble(4, equipos);
+			//pstmt.setAlmacen(5, almacen);
+			pstmt.setDouble(6, clientes);
+			pstmt.setDouble(7, caja);
+			pstmt.setDouble(8, bancos);
+			pstmt.setDouble(9, capitalSocial);
+			//pstmt.setCuentaResultados(10, resultado);
+			pstmt.setDouble(11, credito);
+			pstmt.setDouble(12, proveedores);
+			pstmt.setDouble(13, valorBalance);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public static void main(String[] args) {
 		insertSocio("72451234A", "Ana", "Sanchez", 687333222, "Avenida 8", 20, "Anual", 960);
 		insertSocio("71233123D", "Jon", "Agirre", 677345233, "Gipuzkoa kalea 5A, 1A", 1, "Anual", 960);
 		insertSocio("72555234T", "Mikel", "Etxabe", 688883222, "Avenida Navarra 39B, 2A", 2, "Anual", 960);
 		insertSocio("44533123D", "Ainhoa", "Agirre", 677345290, "Balea Kalea 5, 1A", 3, "Anual", 960);
 		insertSocio("72225111X", "Maria", "Aramburu", 688090210, "Avenida de la Libertad 8B, 2A", 4, "Semestral", 960);
-/*		insertSocio("71233883W", "Juan Carlos", "Agirre", 601455233, "Avenida San Francisco 12, 4C", 5, "Anual", 960);
+		insertSocio("71233883W", "Juan Carlos", "Agirre", 601455233, "Avenida San Francisco 12, 4C", 5, "Anual", 960);
 		insertSocio("43551234A", "Jorge", "Legorburu", 677373222, "Avenida Gipuzcoa 32, 5A", 6, "Mensual", 960);
 		insertSocio("44233443P", "Jon", "Etxabe", 670015233, "Avenida Zumalakarregi 5C, 3A", 7, "Anual", 960);
 		insertSocio("77322234Q", "Iñigo", "Agirrezabalaga", 687303200, "Avenida Alava 3, 2A", 8, "Anual", 960);
@@ -159,6 +304,22 @@ public class InsertData {
 		insertTipoProducto("Helados", 9);
 		insertTipoProducto("Material", 10);
 		
-	}*/
+		//insertProducto("Aceite de Oliva", 01, 1, 0.8);
+		
+		insertMesa(1, 12);
+		insertMesa(2, 12);
+		insertMesa(3, 6);
+		insertMesa(4, 6);
+		insertMesa(5, 12);
+		insertMesa(6, 12);
+		
+		//insertReserva(1, 1, 1, 2021-01-01, "Cena");
+		//insertAlmacen(codigo, fecha, productos, valor);
+		
+		//insertProductoAlmacen(codigoAlmacen, codigoProducto);
+		
+		//insertCuentaResultados(codigo, fecha, ingresoCuota, ingresoReservas, gastoCompras, otrosGastos, resultado);
+		
+		//insertBalance(codigo, fecha, mobiliario, equipos, almacen, clientes, caja, bancos, capitalSocial, resultado, credito, proveedores, valorBalance);
 	}
 }
