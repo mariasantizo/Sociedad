@@ -70,6 +70,43 @@ public class CreateTable {
 				+ "HORARIO TEXT \n"
 				+ ");";
 		
-		createTable(sqlReserva);
+		String sqlAlmacen = "CREATE TABLE IF NOT EXISTS ALMACEN (\n"
+				+ "CODIGO NUMBER PRIMARY KEY, \n"
+				+ "FECHA DATE, \n"
+				+ "VALOR NUMBER \n"
+				+ ");";
+		
+		String sqlProductoAlmacen = "CREATE TABLE IF NOT EXISTS PRODUCTOALMACEN (\n"
+				+ "CODIGOALMACEN NUMBER REFERENCES ALMACEN(CODIGO), \n"
+				+ "CODIGOPRODUCTO NUMBER REFERENCES PRODUCTO(CODIGO) \n"
+				+ ");";
+		
+		String sqlCuentaResultados = "CREATE TABLE IF NOT EXISTS CUENTARESULTADOS (\n"
+				+ "CODIGO NUMBER PRIMARY KEY, \n"
+				+ "FECHA DATE, \n"
+				+ "INGRESOCUOTA NUMBER, \n"
+				+ "INGRESORESERVAS NUMBER, \n"
+				+ "GASTOCOMPRAS NUMBER, \n"
+				+ "OTROSGASTOS NUMBER, \n"
+				+ "RESULTADO NUMBER \n"
+				+ ");";
+		
+		String sqlBalance = "CREATE TABLE IF NOT EXISTS BALANCE (\n"
+				+ "CODIGO NUMBER PRIMARY KEY, \n"
+				+ "FECHA DATE, \n"
+				+ "MOBILIARIO NUMBER, \n"
+				+ "EQUIPOS NUMBER, \n"
+				+ "CODIGOALMACEN NUMBER REFERENCES ALMACEN(CODIGO), \n"
+				+ "CLIENTES NUMBER, \n"
+				+ "CAJA NUMBER, \n"
+				+ "BANCOS NUMBER, \n"
+				+ "CAPITALSOCIAL NUMBER, \n"
+				+ "CCODIGOCUENTARESULTADOS NUMBER REFERENCES CUENTARESULTADOS(CODIGO), \n"
+				+ "CREDITO NUMBER, \n"
+				+ "PROVEEDORES NUMBER, \n"
+				+ "VALORBALANCE NUMBER \n"
+				+ ");";
+		
+		createTable(sqlBalance);
 	}
 }
