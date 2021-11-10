@@ -16,7 +16,7 @@ public class SelectData {
     private Connection connect()
     {
         // SQLite connection string
-        String name = "HelloWorld.db";
+        String name = "BaseDeDatos.db";
         String url = "jdbc:sqlite:" + name;
         Connection conn = null;
 
@@ -33,11 +33,11 @@ public class SelectData {
 
 
     /**
-     * select all rows in the warehouses table
+     * selecciona todas las lineas en la tabla SOCIO
      */
     public void selectAll()
     {
-        String sql = "SELECT id, name, capacity FROM warehouses";
+        String sql = "SELECT , numeroSocio, tipoCuota, cuota FROM SOCIO";
 
         try
                 (
@@ -52,9 +52,9 @@ public class SelectData {
             {
                 System.out.println
                         (
-                                rs.getInt("id") +  "\t" +
-                                rs.getString("name") + "\t" +
-                                rs.getDouble("capacity")
+                                rs.getInt("numeroSocio") +  "\t" +
+                                rs.getString("tipoCuota") + "\t" +
+                                rs.getInt("cuota")
                         );
             }
         } catch (SQLException e)
@@ -62,7 +62,6 @@ public class SelectData {
             System.out.println(e.getMessage());
         }
     }
-
 
     /**
      * @param args the command line arguments
