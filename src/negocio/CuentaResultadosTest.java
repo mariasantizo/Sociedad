@@ -27,7 +27,6 @@ public class CuentaResultadosTest {
     @Test
     public void getCodigoCuentaResultados() {
         int codigo = 1;
-
         cuentaResultado1.setCodigo(codigo);  
         assertEquals(cuentaResultado1.getCodigo(), codigo);
     }
