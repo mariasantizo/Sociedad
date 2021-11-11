@@ -16,6 +16,10 @@ public class Mesa {
 		this.codigoMesa = codigoMesa;
 		this.capacidad = capacidad;
 	}
+	
+	public Mesa () {
+		super();
+	}
 
 	public int getCodigoMesa() {
 		return codigoMesa;

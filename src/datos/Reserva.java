@@ -7,6 +7,7 @@
 
 package datos;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Reserva {
@@ -15,6 +16,8 @@ public class Reserva {
 	private Mesa mesa;
 	private Calendar fecha;
 	private String horario;
+	private ArrayList<Producto> productos;
+	private double precio;
 	
 	public Reserva(int codigo, Socio socio, Mesa mesa, Calendar fecha, String horario) {
 		super();
@@ -68,7 +71,29 @@ public class Reserva {
 	public void setHorario(String horario) {
 		this.horario = horario;
 	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
 	
-	
+	public ArrayList<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(ArrayList<Producto> productos) {
+		this.productos = productos;
+	}
+
+	public void pagar () {
+		double precio = 0;
+		for (int i=0; i<this.productos.size(); i++) {
+			precio = precio + productos.get(i).getPrecio();
+		}
+		this.precio=precio;		
+	}
 	
 }
