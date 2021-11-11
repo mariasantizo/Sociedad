@@ -6,13 +6,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CreateTable {
+	/**
+	 * Pasándole una sentencia de creación de tablas de sql, crea esa tabla en la base de datos
+	 * @author mariasantizo
+	 * @param sql
+	 */
 	public static void createTable(String sql) {
 		//Conectarse a la BD
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
-		
-		//Crear sentencia SQL para creación de tablas
-		
 		
 		//Hacer conexiones y crear tabla
 		try (Connection conn = DriverManager.getConnection(url);

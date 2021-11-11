@@ -17,10 +17,9 @@ import negocio.CuentaResultados;
 public class InsertData {
 	
 	/**
-	 * inserta Socios en la BD
+	 * Inserta Socios en la BD
 	 * @author mariasantizo
 	 */
-	
 	public static void insertSocio(String dni, String nombre, String apellido, int telefono, String direccion, int numeroSocio, String tipoCuota, int cuota) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
@@ -73,12 +72,10 @@ public class InsertData {
 		}
 	}
 	
-/*	
-	*//**
-	 * inserta Tipos de producto en la BD
+	/**
+	 * Inserta Tipos de producto en la BD
 	 * @author malensanz
 	 */
-	
 	public static void insertTipoProducto(String nombre, int codigo) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
@@ -99,10 +96,9 @@ public class InsertData {
 	}
 	
 	/**
-	 * inserta productos en la base de datos
+	 * Inserta productos en la base de datos
 	 * @author malensanz
 	 */
-	
 	public static void insertProducto(String nombre, int codigo, TipoProducto tipoProducto, double precio) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
