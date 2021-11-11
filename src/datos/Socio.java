@@ -67,6 +67,7 @@ public class Socio extends Persona{
 	 * @version 2
 	 * @since 2
  */
+	@Override
 	public void calcularCuota() {
 		int cuotaAnual=960;
 		switch (tipoCuota) {

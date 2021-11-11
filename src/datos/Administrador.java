@@ -11,9 +11,29 @@ package datos;
 
 public class Administrador extends Persona {
 
+	private double salario;
+	
 	public Administrador(String dni, String nombre, String apellido, int telefono, String direccion) {
 		super(dni, nombre, apellido, telefono, direccion);
 		// TODO Auto-generated constructor stub
+	}
+
+	public double getSalario() {
+		return salario;
+	}
+
+	public void setSalario(double salario) {
+		this.salario = salario;
+	}
+	
+	/**
+	 * Calcula el salario de cada administrador
+	 * @author mariasantizo
+	 */
+	@Override
+	public void calcularCuota() {
+		int salarioAnual = 18000;
+		this.salario=salarioAnual/14;
 	}
 	
 }

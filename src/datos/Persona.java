@@ -69,8 +69,13 @@ public abstract class Persona {
 	}
 	
 	
-	
-	
+	/**
+	 * Utilizaremos este método para implementar el polimorfismo
+	 * @author mariasantizo
+	 */
+	public void calcularCuota() {
+		
+	}
 	
 	
 	
