@@ -1,6 +1,7 @@
 package gestorBD;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -87,6 +88,7 @@ public class InsertData {
 			
 			pstmt.setString(1, nombre);
 			pstmt.setInt(2, codigo);
+			pstmt.executeUpdate();
 
 			
 		} catch (SQLException e) {
@@ -99,7 +101,7 @@ public class InsertData {
 	 * Inserta productos en la base de datos
 	 * @author malensanz
 	 */
-	public static void insertProducto(String nombre, int codigo, TipoProducto tipoProducto, double precio) {
+	public static void insertProducto(String nombre, int codigo, int codigoTipoProducto, double precio) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
@@ -110,8 +112,9 @@ public class InsertData {
 			
 			pstmt.setString(1, nombre);
 			pstmt.setInt(2, codigo);
-			//((Object) pstmt).setTipoProducto(3, tipoProducto);
+			pstmt.setInt(3, codigoTipoProducto);
 			pstmt.setDouble(4, precio);
+			pstmt.executeUpdate();
 
 			
 		} catch (SQLException e) {
@@ -131,6 +134,7 @@ public class InsertData {
 			
 			pstmt.setInt(1, codigoMesa);
 			pstmt.setInt(2, capacidad);
+			pstmt.executeUpdate();
 
 			
 		} catch (SQLException e) {
@@ -140,7 +144,7 @@ public class InsertData {
 	}
 	
 	
-	public static void insertReserva(int codigo, Socio socio, Mesa mesa, Calendar fecha, String horario) {
+	public static void insertReserva(int codigo, int codigoSocio, int codigoMesa, String fecha, String horario) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
@@ -150,10 +154,11 @@ public class InsertData {
 			PreparedStatement pstmt = conn.prepareStatement(sql)){
 			
 			pstmt.setInt(1, codigo);
-/*			pstmt.setSocio(2, socio);
-			pstmt.setMesa(3, mesa);
-			pstmt.setCalendar(4, fecha);*/
+			pstmt.setInt(2, codigoSocio);
+			pstmt.setInt(3, codigoMesa);
+			pstmt.setString(4, fecha);
 			pstmt.setString(5, horario);
+			pstmt.executeUpdate();
 
 			
 		} catch (SQLException e) {
@@ -162,7 +167,7 @@ public class InsertData {
 		}
 	}
 	
-	public static void insertAlmacen(int codigo,Calendar fecha, ArrayList<Producto> productos, double valor) {
+	public static void insertAlmacen(int codigo, String fecha, String productos, double valor) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
@@ -172,9 +177,10 @@ public class InsertData {
 			PreparedStatement pstmt = conn.prepareStatement(sql)){
 			
 			pstmt.setInt(1, codigo);
-/*			pstmt.setCalendar(2, fecha);
-			pstmt.setArrayList(3, productos);*/
+			pstmt.setString(2, fecha);
+			pstmt.setString(3, productos);
 			pstmt.setDouble(4, valor);
+			pstmt.executeUpdate();
 
 			
 		} catch (SQLException e) {
@@ -194,6 +200,7 @@ public class InsertData {
 			
 			pstmt.setInt(1, codigoAlmacen);
 			pstmt.setDouble(2, codigoProducto);
+			pstmt.executeUpdate();
 
 			
 		} catch (SQLException e) {
@@ -202,7 +209,7 @@ public class InsertData {
 		}
 	}
 
-	public static void insertCuentaResultados(int codigo, Calendar fecha, double ingresoCuota, double ingresoReservas, double gastoCompras, double otrosGastos, double resultado) {
+	public static void insertCuentaResultados(int codigo, String fecha, double ingresoCuota, double ingresoReservas, double gastoCompras, double otrosGastos, double resultado) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
@@ -212,12 +219,13 @@ public class InsertData {
 			PreparedStatement pstmt = conn.prepareStatement(sql)){
 			
 			pstmt.setInt(1, codigo);
-			//pstmt.setCalendar(2, fecha);
+			pstmt.setString(2, fecha);
 			pstmt.setDouble(3, ingresoCuota);
 			pstmt.setDouble(4, ingresoReservas);
 			pstmt.setDouble(5, gastoCompras);
 			pstmt.setDouble(6, otrosGastos);
 			pstmt.setDouble(7, resultado);
+			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -225,7 +233,7 @@ public class InsertData {
 		}
 	}
 	
-	public static void insertBalance(int codigo, Calendar fecha, double mobiliario, double equipos, Almacen almacen, double clientes, double caja, double bancos, double capitalSocial, CuentaResultados resultado, double credito, double proveedores, double valorBalance) {
+	public static void insertBalance(int codigo, String fecha, double mobiliario, double equipos, int codigoAlmacen, double clientes, double caja, double bancos, double capitalSocial, double resultado, double credito, double proveedores, double valorBalance) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
@@ -235,18 +243,19 @@ public class InsertData {
 			PreparedStatement pstmt = conn.prepareStatement(sql)){
 			
 			pstmt.setInt(1, codigo);
-			//pstmt.setCalendar(2, fecha);
+			pstmt.setString(2, fecha);
 			pstmt.setDouble(3, mobiliario);
 			pstmt.setDouble(4, equipos);
-			//pstmt.setAlmacen(5, almacen);
+			pstmt.setInt(5, codigoAlmacen);
 			pstmt.setDouble(6, clientes);
 			pstmt.setDouble(7, caja);
 			pstmt.setDouble(8, bancos);
 			pstmt.setDouble(9, capitalSocial);
-			//pstmt.setCuentaResultados(10, resultado);
+			pstmt.setDouble(10, resultado);
 			pstmt.setDouble(11, credito);
 			pstmt.setDouble(12, proveedores);
 			pstmt.setDouble(13, valorBalance);
+			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -300,7 +309,7 @@ public class InsertData {
 		insertTipoProducto("Helados", 9);
 		insertTipoProducto("Material", 10);
 		
-		//insertProducto("Aceite de Oliva", 01, 1, 0.8);
+		insertProducto("Aceite de Oliva", 01, 1, 0.8);
 		
 		insertMesa(1, 12);
 		insertMesa(2, 12);
@@ -309,13 +318,14 @@ public class InsertData {
 		insertMesa(5, 12);
 		insertMesa(6, 12);
 		
-		//insertReserva(1, 1, 1, 2021-01-01, "Cena");
-		//insertAlmacen(codigo, fecha, productos, valor);
+		insertReserva(1, 1, 1, "12/12/2020", "Cena");
 		
-		//insertProductoAlmacen(codigoAlmacen, codigoProducto);
+		insertAlmacen(1, "01/01/2021", "Aceite", 10);
 		
-		//insertCuentaResultados(codigo, fecha, ingresoCuota, ingresoReservas, gastoCompras, otrosGastos, resultado);
+		insertProductoAlmacen(1, 12);
 		
-		//insertBalance(codigo, fecha, mobiliario, equipos, almacen, clientes, caja, bancos, capitalSocial, resultado, credito, proveedores, valorBalance);
+		insertCuentaResultados(1, "31/12/2020", 100, 100, 100, 30, 70);
+		
+		insertBalance(1, "31/12/2020", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
 	}
 }
