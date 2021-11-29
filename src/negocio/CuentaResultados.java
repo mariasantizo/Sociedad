@@ -7,6 +7,7 @@
 
 package negocio;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class CuentaResultados {
@@ -92,8 +93,8 @@ public class CuentaResultados {
 	 * @version 2
 	 * @since 2
 	 */
-	
 	public void calcularResultado (){
 		this.setResultado((this.ingresoCuota+this.ingresoReservas)-(this.gastoCompras+this.otrosGastos));
 	}
+
 }
