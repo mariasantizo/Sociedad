@@ -23,8 +23,70 @@ public class Recursividad {
 	}
 	
 	public static Object busquedaBinaria(ArrayList<Object> array) {
-		
 		return null;
+	}
+	
+	/**
+	 * Coge un numero que se quede en medio. Los elementos de la izquierda serán menores y los de la derecha mayores.
+	 */
+	public static int pivot(int[] array, int low, int high) {
+		int pivot = array[low];
+		int leftwall = low;
+		
+		for (int i=low+1; i==high; i++) {
+			if (array[i]<pivot) {
+				int aux=0;
+				aux=array[leftwall];
+				array[leftwall]=array[i];
+				array[i]=aux;
+				leftwall += 1;
+			}
+		int aux=0;
+		aux=pivot;
+		pivot=array[leftwall];
+		array[leftwall]=aux;
+		}
+		return leftwall;
+	}
+	
+	public static int[] quickSort(int[] array, int low, int high) {
+		if (array.length==1) {
+		} else {
+			if (low<high) {
+				//1. Llamar a pivot
+				int p=0;
+				p=pivot(array, low, high);
+				//2. Llamar a quickSort con la parte izquierda del array
+				quickSort(array, low, p);
+				//3. Llamar a quickSort con la parte derecha del array
+				quickSort(array, p+1, high);
+			}
+		}
+		return array;
+	}
+	
+	/**
+	 * Combina dos arrays dejandolos ordenados
+	 */
+	public static void merge() {
+		
+	}
+	
+	public static int[] mergeSort(int[] array, int indiceInicial, int indiceFinal) {
+		if (array.length==1) {
+			
+		} else {
+			//1. Partir array en dos
+			int index = (array.length)/2;
+			//2. Llamar a mergeSort con la parte izquierda del array
+			int[] l = mergeSort(array, 0, index);
+			//3. Llamar a mergeSort con la parte derecha del array
+			int[] r = mergeSort(array, index, array.length);
+			//4. Llamar a función merge
+			//Return merge (l, r)
+			
+		}
+		return array;
 	}
 	
 	public static void main(String[] args) {

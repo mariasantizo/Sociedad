@@ -52,10 +52,10 @@ public class Login extends JFrame {
 		labelBienvenida.setBounds(109, 16, 382, 60);
 		contentPane.add(labelBienvenida);
 		
-		JLabel lblContrasena = new JLabel("Usuario:");
-		lblContrasena.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblContrasena.setBounds(55, 105, 156, 34);
-		contentPane.add(lblContrasena);
+		JLabel lblUsuario = new JLabel("Usuario:");
+		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblUsuario.setBounds(55, 105, 156, 34);
+		contentPane.add(lblUsuario);
 		
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a:");
 		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -75,6 +75,7 @@ public class Login extends JFrame {
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		btnAceptar.setBounds(393, 230, 115, 29);

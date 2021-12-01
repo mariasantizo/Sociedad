@@ -25,7 +25,7 @@ public class QuickSort implements Busqueda{
 	
 	@Override
 	public int[] buscar(int[] array, int low, int high) {
-		if (array.length==1) {
+		if (array.length==1 || array.length==0) {
 		} else {
 			if (low<high) {
 				//1. Llamar a pivot

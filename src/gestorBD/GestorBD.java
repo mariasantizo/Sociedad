@@ -7,6 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import datos.Mesa;
+import datos.Socio;
 
 public class GestorBD {
 	public static void createNewDatabase (String fileName) {
@@ -20,10 +24,6 @@ public class GestorBD {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-	}
-	
-	public static void main(String[] args) {
-		createNewDatabase("BaseDeDatos.db");
 	}
 	
 	/**
@@ -295,45 +295,32 @@ public class GestorBD {
 	
 
     /**
-     * selecciona todas las lineas en la tabla SOCIO
+     * selecciona todas las lineas en la tabla SOCIO y los devuelve en un ArrayList de Socios.
      */
-    public void selectAllSocio()
+    public static ArrayList<Socio> selectAllSocio()
     {
+    	ArrayList<Socio> socios = new ArrayList<Socio>();
     	String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
     	String sql = "SELECT dni, nombre, apellido, telefono, direccion, numeroSocio, tipoCuota, cuota FROM SOCIO";
-
-        try
-                (
-                        Connection conn = DriverManager.getConnection(url);
-                        Statement stmt  = conn.createStatement();
-                        ResultSet rs    = stmt.executeQuery(sql)
-                )
-        {
-
+        try (Connection conn = DriverManager.getConnection(url);
+        		Statement stmt  = conn.createStatement();
+                ResultSet rs    = stmt.executeQuery(sql)) {
             // loop through the result set
             while (rs.next())
             {
-                System.out.println
-                        (
-                        		rs.getString("dni") +  "\t" +
-                                rs.getString("nombre") + "\t" +
-                                rs.getString("apellido") + "\t" +
-                                rs.getInt("telefono") + "\t" +
-                                rs.getString("direccion") + "\t" +     
-                        		rs.getInt("numeroSocio") +  "\t" +
-                                rs.getString("tipoCuota") + "\t" +
-                                rs.getInt("cuota")
-                        );
+            	Socio s = new Socio (rs.getString("dni"), rs.getString("nombre"), rs.getString("apellido"), rs.getInt("telefono"), rs.getString("direccion"), rs.getInt("numeroSocio"), rs.getString("tipoCuota"), rs.getInt("cuota"));
+                socios.add(s);      
             }
         } catch (SQLException e)
         {
             System.out.println(e.getMessage());
         }
+		return socios;
     }
     
     public void selectAllMesa() {
-    	
+    	ArrayList<Mesa> mesas = new ArrayList<Mesa>();
     	String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
     	
@@ -342,10 +329,8 @@ public class GestorBD {
     			Statement stmt = conn.createStatement();
     			ResultSet rs = stmt.executeQuery(sql)){
     		while (rs.next()) {
-    			System.out.println(
-    			rs.getInt("CODIGOMESA") + "\t"+
-    			rs.getInt("CAPACIDAD")
-    			);
+    			Mesa m = new Mesa(rs.getInt("CODIGOMESA"), rs.getInt("CAPACIDAD"));
+    			mesas.add(m);
     		}
     	} catch (SQLException e) {
     		System.out.println(e.getMessage());
@@ -555,4 +540,11 @@ public class GestorBD {
         }
     }
 	
+    public static void main(String[] args) {
+		ArrayList<Socio> socios = new ArrayList<Socio>();
+    	socios=selectAllSocio();
+    	for (int i=0; i<socios.size(); i++) {
+    		System.out.println(socios.get(i).getNombre());
+    	}
+	}
 }
