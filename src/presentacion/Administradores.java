@@ -5,19 +5,23 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import datos.Administrador;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.JButton;
+import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Administradores extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
+	
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -28,38 +32,36 @@ public class Administradores extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public Administradores() {
+	public Administradores(Administrador administrador) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 678, 393);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblHola = new JLabel("Hola ..., \u00BFqu\u00E9 desea hacer?");
+		JLabel lblHola = new JLabel("Hola "+administrador.getNombre()+", \u00BFqu\u00E9 desea hacer?");
 		lblHola.setForeground(SystemColor.textHighlight);
 		lblHola.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblHola.setBounds(149, 29, 388, 49);
 		contentPane.add(lblHola);
 		
-		JButton btnAnadirSocio = new JButton("A\u00F1adir socio");
-		btnAnadirSocio.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnAnadirSocio.setBounds(51, 129, 155, 41);
-		contentPane.add(btnAnadirSocio);
+		JButton btnAdministrarSocios = new JButton("Administrar socios");
+		btnAdministrarSocios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AdministrarSocios a = new AdministrarSocios();
+				Administradores.this.setVisible(false);
+			}
+		});
+		btnAdministrarSocios.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		contentPane.add(btnAdministrarSocios);
 		
-		JButton btnBorrarSocio = new JButton("Borrar socio");
-		btnBorrarSocio.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnBorrarSocio.setBounds(51, 186, 155, 41);
-		contentPane.add(btnBorrarSocio);
-		
-		JButton btnVerCuentas = new JButton("Ver cuentas");
+		JButton btnVerCuentas = new JButton("Consultar cuentas");
 		btnVerCuentas.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnVerCuentas.setBounds(51, 245, 155, 41);
 		contentPane.add(btnVerCuentas);
 	}
 }

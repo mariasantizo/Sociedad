@@ -7,11 +7,14 @@
 
 package datos;
 
+import java.util.ArrayList;
+
 public class Producto {
 	private String nombre; 
 	private int codigo; 
 	private TipoProducto tipo;
 	private double precio;
+	private int tipoAux;
 	
 	public Producto(String nombre, int codigo, TipoProducto tipo, double precio) {
 		super();
@@ -21,6 +24,14 @@ public class Producto {
 		this.precio=precio;
 	}
 
+	public Producto(String nombre, int codigo, int tipo, double precio) {
+		super();
+		this.nombre = nombre;
+		this.codigo = codigo;
+		this.tipoAux = tipo;
+		this.precio=precio;
+		
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -57,6 +68,14 @@ public class Producto {
 
 	public void setPrecio(double precio) {
 		this.precio = precio;
+	}
+	
+	public void convertirTipo (ArrayList<TipoProducto> tipos) {
+		for (TipoProducto t: tipos) {
+			if (t.getCodigo()==this.tipoAux) {
+				this.tipo=t;
+			}
+		}
 	}
 	
 }

@@ -102,7 +102,7 @@ public class Login extends JFrame {
 						}else{
 							if(textoUsuario.equals(arrayAdmins.get(i).getNombre()) && passwordTexto.equals(((Administrador) arrayAdmins.get(i)).getContrasena())){
 								usuarioEncontrado=true;	
-								Administradores admins =new Administradores ();
+								Administradores admins =new Administradores (arrayAdmins.get(i));
 								admins.setVisible(true);
 								Login.this.setVisible(false);
 							}

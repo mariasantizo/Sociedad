@@ -8,11 +8,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import datos.Administrador;
 import datos.Mesa;
+import datos.Producto;
 import datos.Reserva;
 import datos.Socio;
+import datos.TipoProducto;
 
 public class GestorBD {
 	public static void createNewDatabase (String fileName) {
@@ -351,6 +355,9 @@ public class GestorBD {
     			Statement stmt = conn.createStatement();
     			ResultSet rs = stmt.executeQuery(sql)){
     		while (rs.next()) {
+    			Calendar c = new GregorianCalendar();
+    			//calendar y date no son compatibles, revisar esto!!!!
+    			//Reserva r = new Reserva(rs.getInt("CODIGO"), rs.getString("DNISOCIO"), rs.getInt("CODIGOMESA"), rs.getDate("FECHA"), rs.getString("HORARIO"));
     			System.out.println(
     			rs.getInt("CODIGO") + "\t"+
     			rs.getString("DNISOCIO") + "\t"+
@@ -369,18 +376,13 @@ public class GestorBD {
     	ArrayList<Administrador> admins = new ArrayList<Administrador>();
     	String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
-    	String sql = "SELECT DNI, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM ADMINISTRADOR";
+    	String sql = "SELECT DNI, NOMBRE, APELLIDO, TELEFONO, DIRECCION, CONTRASENA FROM ADMINISTRADOR";
     	try (Connection conn = DriverManager.getConnection(url);
     			Statement stmt = conn.createStatement();
     			ResultSet rs = stmt.executeQuery(sql)){
     		while (rs.next()) {
-    			System.out.println(
-    			rs.getString("DNI") + "\t"+
-    			rs.getString("NOMBRE") + "\t"+
-    			rs.getString("APELLIDO") + "\t"+
-    			rs.getInt("TELEFONO") + "\t"+
-    			rs.getString("DIRECCION")
-    			);
+    			Administrador a = new Administrador(rs.getString("DNI"), rs.getString("NOMBRE"), rs.getString("APELLIDO"), rs.getInt("TELEFONO"), rs.getString("DIRECCION"), rs.getString("CONTRASENA"));
+    			admins.add(a);
     		}
     	} catch (SQLException e) {
     		System.out.println(e.getMessage());
@@ -388,7 +390,8 @@ public class GestorBD {
 		return admins;
     }
     
-    public void selectAllTipoProducto() {
+    public static ArrayList<TipoProducto> selectAllTipoProducto() {
+    	ArrayList<TipoProducto> tipos = new ArrayList<TipoProducto>();
     	String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
     	String sql = "SELECT CODIGO, NOMBRE FROM TIPOPRODUCTO";
@@ -396,17 +399,17 @@ public class GestorBD {
     			Statement stmt = conn.createStatement();
     			ResultSet rs = stmt.executeQuery(sql)){
     		while (rs.next()) {
-    			System.out.println(
-    			rs.getInt("CODIGO") + "\t"+
-    			rs.getString("NOMBRE")
-    			);
+    			TipoProducto t = new TipoProducto(rs.getString("NOMBRE"), rs.getInt("CODIGO"));
+    			tipos.add(t);
     		}
     	} catch (SQLException e) {
     		System.out.println(e.getMessage());
     	}
+    	return tipos;
     }
     
-    public void selectAllProducto() {
+    public static ArrayList<Producto> selectAllProducto(ArrayList<TipoProducto> tipos) {
+    	ArrayList<Producto> productos = new ArrayList<Producto>();
     	String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
     	String sql = "SELECT NOMBRE, CODIGO, PRECIO, CODIGOTIPOPRODUCTO FROM PRODUCTO";
@@ -414,16 +417,15 @@ public class GestorBD {
     			Statement stmt = conn.createStatement();
     			ResultSet rs = stmt.executeQuery(sql)){
     		while (rs.next()) {
-    			System.out.println(
-    			rs.getString("NOMBRE") + "\t"+
-    			rs.getInt("CODIGO") + "\t"+
-    			rs.getInt("PRECIO") + "\t"+
-    			rs.getInt("CODIGOTIPOPRODUCTO")
-    			);
+    			Producto p = new Producto (rs.getString("NOMBRE"), rs.getInt("CODIGO"), rs.getInt("PRECIO"), rs.getInt("CODIGOTIPOPRODUCTO"));
+    			p.convertirTipo(tipos);
+    			productos.add(p);
+    	
     		}
     	} catch (SQLException e) {
     		System.out.println(e.getMessage());
     	}
+    	return productos;
     }
     
     public void selectAllProductoAlmacen() {
