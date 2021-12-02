@@ -9,7 +9,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import datos.Administrador;
 import datos.Mesa;
+import datos.Reserva;
 import datos.Socio;
 
 public class GestorBD {
@@ -51,11 +53,11 @@ public class GestorBD {
 	 * Inserta Socios en la BD
 	 * @author mariasantizo
 	 */
-	public static void insertSocio(String dni, String nombre, String apellido, int telefono, String direccion, int numeroSocio, String tipoCuota, int cuota) {
+	public static void insertSocio(String dni, String nombre, String apellido, int telefono, String direccion, String contrasena, int numeroSocio, String tipoCuota, int cuota) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
-		String sql = "INSERT INTO SOCIO VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO SOCIO VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try (Connection conn = DriverManager.getConnection(url);
 			PreparedStatement pstmt = conn.prepareStatement(sql)){
@@ -65,9 +67,10 @@ public class GestorBD {
 			pstmt.setString(3, apellido);
 			pstmt.setInt(4, telefono);
 			pstmt.setString(5, direccion);
-			pstmt.setInt(6, numeroSocio);
-			pstmt.setString(7, tipoCuota);
-			pstmt.setInt(8, cuota);
+			pstmt.setString(6, contrasena);
+			pstmt.setInt(7, numeroSocio);
+			pstmt.setString(8, tipoCuota);
+			pstmt.setInt(9, cuota);
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -81,11 +84,11 @@ public class GestorBD {
 	 * @author malensanz
 	 */
 	
-	public static void insertAdministrador(String dni, String nombre, String apellido, int telefono, String direccion) {
+	public static void insertAdministrador(String dni, String nombre, String apellido, int telefono, String direccion, String contrasena) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
-		String sql = "INSERT INTO ADMINISTRADOR VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO ADMINISTRADOR VALUES (?, ?, ?, ?, ?, ?)";
 		
 		try (Connection conn = DriverManager.getConnection(url);
 			PreparedStatement pstmt = conn.prepareStatement(sql)){
@@ -95,6 +98,7 @@ public class GestorBD {
 			pstmt.setString(3, apellido);
 			pstmt.setInt(4, telefono);
 			pstmt.setString(5, direccion);
+			pstmt.setString(6, contrasena);
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -302,14 +306,14 @@ public class GestorBD {
     	ArrayList<Socio> socios = new ArrayList<Socio>();
     	String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
-    	String sql = "SELECT dni, nombre, apellido, telefono, direccion, numeroSocio, tipoCuota, cuota FROM SOCIO";
+    	String sql = "SELECT dni, nombre, apellido, telefono, direccion, contrasena, numeroSocio, tipoCuota, cuota FROM SOCIO";
         try (Connection conn = DriverManager.getConnection(url);
         		Statement stmt  = conn.createStatement();
                 ResultSet rs    = stmt.executeQuery(sql)) {
             // loop through the result set
             while (rs.next())
             {
-            	Socio s = new Socio (rs.getString("dni"), rs.getString("nombre"), rs.getString("apellido"), rs.getInt("telefono"), rs.getString("direccion"), rs.getInt("numeroSocio"), rs.getString("tipoCuota"), rs.getInt("cuota"));
+            	Socio s = new Socio (rs.getString("dni"), rs.getString("nombre"), rs.getString("apellido"), rs.getInt("telefono"), rs.getString("direccion"), rs.getString("contrasena"), rs.getInt("numeroSocio"), rs.getString("tipoCuota"), rs.getInt("cuota"));
                 socios.add(s);      
             }
         } catch (SQLException e)
@@ -319,7 +323,7 @@ public class GestorBD {
 		return socios;
     }
     
-    public void selectAllMesa() {
+    public static ArrayList <Mesa> selectAllMesa() {
     	ArrayList<Mesa> mesas = new ArrayList<Mesa>();
     	String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
@@ -335,10 +339,11 @@ public class GestorBD {
     	} catch (SQLException e) {
     		System.out.println(e.getMessage());
     	}
+		return mesas;
     }
     
-    public void selectAllReserva() {
-    	
+    public static ArrayList <Reserva> selectAllReserva() {
+    	ArrayList<Reserva> reservas = new ArrayList<Reserva>();
     	String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
     	String sql = "SELECT CODIGO, DNISOCIO, CODIGOMESA, FECHA, HORARIO FROM RESERVA";
@@ -357,9 +362,11 @@ public class GestorBD {
     	} catch (SQLException e) {
     		System.out.println(e.getMessage());
     	}
+		return reservas;
     }
     
-    public void selectAllAdministrador() {
+    public static ArrayList <Administrador> selectAllAdministrador() {
+    	ArrayList<Administrador> admins = new ArrayList<Administrador>();
     	String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
     	String sql = "SELECT DNI, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM ADMINISTRADOR";
@@ -378,6 +385,7 @@ public class GestorBD {
     	} catch (SQLException e) {
     		System.out.println(e.getMessage());
     	}
+		return admins;
     }
     
     public void selectAllTipoProducto() {

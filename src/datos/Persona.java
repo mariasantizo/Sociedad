@@ -14,14 +14,16 @@ public abstract class Persona {
 	private String apellido;
 	private int telefono;
 	private String direccion;
+	private String contrasena;
 	
-	public Persona(String dni, String nombre, String apellido, int telefono, String direccion) {
+	public Persona(String dni, String nombre, String apellido, int telefono, String direccion, String contrasena) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.telefono = telefono;
 		this.direccion = direccion;
+		this.contrasena= contrasena;
 	}
 	
 	public Persona() {
@@ -69,6 +71,14 @@ public abstract class Persona {
 	}
 	
 	
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
 	/**
 	 * Utilizaremos este método para implementar el polimorfismo
 	 * @author mariasantizo

@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -16,37 +17,22 @@ public class Socios extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Socios frame = new Socios();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
-	public Socios() {
+	public Socios(JFrame ventanaAnterior, JTextField textFieldUsuario) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 658, 319);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		this.setTitle("Socios");
 		
-		JLabel lblHola = new JLabel("Hola ..., \u00BFqu\u00E9 desea hacer?");
-		lblHola.setForeground(SystemColor.textHighlight);
-		lblHola.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblHola.setBounds(144, 36, 388, 49);
-		contentPane.add(lblHola);
+		JLabel lblBienvenido = new JLabel("Bienvenido ");
+		lblBienvenido.setForeground(SystemColor.textHighlight);
+		lblBienvenido.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblBienvenido.setBounds(144, 36, 151, 49);
+		contentPane.add(lblBienvenido);
 		
 		JButton btnReservar = new JButton("Reservar Mesa");
 		btnReservar.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -62,5 +48,12 @@ public class Socios extends JFrame {
 		btnPagar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnPagar.setBounds(434, 121, 163, 79);
 		contentPane.add(btnPagar);
+		
+		String str= textFieldUsuario.getText();
+		JLabel labelNombre = new JLabel(str+" !");
+		labelNombre.setFont(new Font("Tahoma", Font.BOLD, 24));
+		labelNombre.setForeground(SystemColor.textHighlight);
+		labelNombre.setBounds(310, 40, 212, 40);
+		contentPane.add(labelNombre);
 	}
 }

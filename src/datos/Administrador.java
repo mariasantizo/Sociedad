@@ -13,8 +13,8 @@ public class Administrador extends Persona {
 
 	private double salario;
 	
-	public Administrador(String dni, String nombre, String apellido, int telefono, String direccion) {
-		super(dni, nombre, apellido, telefono, direccion);
+	public Administrador(String dni, String nombre, String apellido, int telefono, String direccion, String contrasena) {
+		super(dni, nombre, apellido, telefono, direccion, contrasena);
 		// TODO Auto-generated constructor stub
 	}
 
