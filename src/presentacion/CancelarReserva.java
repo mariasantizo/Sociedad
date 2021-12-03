@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JList;
+import javax.swing.JButton;
 
 public class CancelarReserva extends JFrame {
 
@@ -32,11 +36,24 @@ public class CancelarReserva extends JFrame {
 	 */
 	public CancelarReserva() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 517, 461);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		this.setTitle("Cancelar reserva");
+		
+		JLabel lblElijaLaReserva = new JLabel("Elija la reserva que quiere cancelar:");
+		lblElijaLaReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblElijaLaReserva.setBounds(38, 33, 425, 43);
+		contentPane.add(lblElijaLaReserva);
+		
+		JList list = new JList();
+		list.setBounds(48, 92, 215, 272);
+		contentPane.add(list);
+		
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBounds(344, 335, 115, 29);
+		contentPane.add(btnAceptar);
 	}
-
 }
