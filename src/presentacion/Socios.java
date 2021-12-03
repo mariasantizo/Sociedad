@@ -15,6 +15,21 @@ import javax.swing.JButton;
 public class Socios extends JFrame {
 
 	private JPanel contentPane;
+	
+	
+	
+/*	public static void main(String[] args) {
+	EventQueue.invokeLater(new Runnable() {
+		public void run() {
+			try {
+				Socios frame = new Socios();
+				frame.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	});
+}*/
 
 	/**
 	 * Create the frame.

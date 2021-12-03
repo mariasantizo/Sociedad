@@ -34,6 +34,7 @@ public class CreateTable {
 				+ " APELLIDO TEXT NOT NULL, \n"
 				+ " TELEFONO NUMBER, \n"
 				+ " DIRECCION TEXT, \n"
+				+ " CONTRASENA TEXT, \n"
 				+ " NUMEROSOCIO NUMBER, \n"
 				+ " TIPOCUOTA TEXT, \n"
 				+ " CUOTA NUMBER \n"
