@@ -14,11 +14,19 @@ import gestorBD.GestorBD;
 import java.awt.GridLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.JTree;
 
 public class AdministrarSocios extends JFrame {
 
 	private JPanel contentPane;
 	private ArrayList<Socio> arraySocios;
+	private JList<Socio> list;
 
 	
 	public static void main(String[] args) {
@@ -39,10 +47,14 @@ public class AdministrarSocios extends JFrame {
 	 */
 	public AdministrarSocios() {
 		arraySocios=GestorBD.selectAllSocio();
-		DefaultListModel<Socio> listaModeloSocios = new DefaultListModel();
+		DefaultListModel<Socio> listaModeloSocios = new DefaultListModel<>();
 		for (Socio s: arraySocios) {
 			listaModeloSocios.addElement(s);
+			System.out.println("entro");
 		}
+		Socio s = new Socio();
+		s.setNombre("a");
+		listaModeloSocios.addElement(s);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 708, 464);
 		contentPane = new JPanel();
@@ -50,12 +62,43 @@ public class AdministrarSocios extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JList list = new JList();
-		list.setBounds(41, 52, 300, 324);
+		
+		list = new JList();
+		list.setBounds(41, 63, 300, 341);
 		contentPane.add(list);
 		list.setModel(listaModeloSocios);
 		
+		JLabel lblNewLabel = new JLabel("Socios");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel.setBounds(58, 26, 136, 26);
+		contentPane.add(lblNewLabel);
 		
+		JButton btnNewButton = new JButton("Ver Información");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (list.getSelectedIndex()==-1) {
+					
+				} else {
+				Socio socio = listaModeloSocios.get(list.getSelectedIndex());
+				FichaSocio fichaSocio = new FichaSocio (socio);
+				fichaSocio.setVisible(true);
+				AdministrarSocios.this.setVisible(false);
+				}
+			}
+		});
+		btnNewButton.setBounds(397, 112, 175, 32);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Eliminar usuario");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_1.setBounds(397, 172, 175, 32);
+		contentPane.add(btnNewButton_1);
 		
 	}
 }
