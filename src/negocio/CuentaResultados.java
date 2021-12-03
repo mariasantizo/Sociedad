@@ -10,7 +10,7 @@ package negocio;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class CuentaResultados {
+public class CuentaResultados implements Calculable <CuentaResultados>{
 	private int codigo;
 	private Calendar fecha;
 	private double ingresoCuota;
@@ -95,6 +95,24 @@ public class CuentaResultados {
 	 */
 	public void calcularResultado (){
 		this.setResultado((this.ingresoCuota+this.ingresoReservas)-(this.gastoCompras+this.otrosGastos));
+	}
+
+	@Override
+	public void calcularGrafico(ArrayList<CuentaResultados> array) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void calcularTabla(ArrayList<CuentaResultados> array) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void calcularResumen(ArrayList<CuentaResultados> array) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

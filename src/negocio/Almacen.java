@@ -13,7 +13,7 @@ import java.util.Calendar;
 
 import datos.Producto;
 
-public class Almacen {
+public class Almacen implements Calculable <Almacen>{
 	private int codigo;
 	private Calendar fecha;
 	private ArrayList<Producto> productos;
@@ -80,5 +80,25 @@ public class Almacen {
 		}
 		this.valor=valor;
 	}
+
+	@Override
+	public void calcularGrafico(ArrayList<Almacen> array) {
+		// TODO Auto-generated method stub
+		//Ordenar por fecha
+		
+		
+	}
 	
-}
+	@Override
+	public void calcularTabla(ArrayList<Almacen> array) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void calcularResumen(ArrayList<Almacen> array) {
+		// TODO Auto-generated method stub
+		
+	}
+		
+	}

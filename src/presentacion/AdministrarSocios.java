@@ -87,18 +87,23 @@ public class AdministrarSocios extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(397, 112, 175, 32);
+		btnNewButton.setBounds(397, 112, 241, 32);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Eliminar usuario");
+		JButton btnNewButton_1 = new JButton("Eliminar socio");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(397, 172, 175, 32);
+		btnNewButton_1.setBounds(397, 250, 241, 32);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Añadir socio");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_2.setBounds(397, 184, 241, 32);
+		contentPane.add(btnNewButton_2);
 		
 	}
 }

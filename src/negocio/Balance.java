@@ -7,9 +7,10 @@
 
 package negocio;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Balance {
+public class Balance implements Calculable <Balance> {
 	private int codigo;
 	private Calendar fecha;
 	private double mobiliario;
@@ -175,7 +176,6 @@ public class Balance {
 	 * @version 2
 	 * @since 2
 	 */
-	
 	public void calcularValorBalance (){
 		this.valorBalance=this.mobiliario+this.equipos+this.clientes+this.almacen.getValor()+this.caja+this.bancos;
 		
@@ -187,12 +187,32 @@ public class Balance {
 	 * @version 2
 	 * @since 2
 	 */
-	
 	public boolean comprobarValor(){
 		if (this.valorBalance==(this.capitalSocial+this.resultado.getResultado()+this.credito+this.proveedores)){
 		return true;
 		}else{
 		return false;
 		}
+	}
+
+
+	@Override
+	public void calcularGrafico(ArrayList<Balance> array) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void calcularTabla(ArrayList<Balance> array) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void calcularResumen(ArrayList<Balance> array) {
+		// TODO Auto-generated method stub
+		
 	}
 }

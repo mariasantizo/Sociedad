@@ -54,6 +54,7 @@ public class Administradores extends JFrame {
 		btnAdministrarSocios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AdministrarSocios a = new AdministrarSocios();
+				a.setVisible(true);
 				Administradores.this.setVisible(false);
 			}
 		});
@@ -61,6 +62,13 @@ public class Administradores extends JFrame {
 		contentPane.add(btnAdministrarSocios);
 		
 		JButton btnVerCuentas = new JButton("Consultar cuentas");
+		btnVerCuentas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ConsultarCuentas consultas = new ConsultarCuentas();
+				consultas.setVisible(true);
+				Administradores.this.setVisible(false);
+			}
+		});
 		btnVerCuentas.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(btnVerCuentas);
 	}
