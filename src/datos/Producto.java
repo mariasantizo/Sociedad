@@ -9,7 +9,7 @@ package datos;
 
 import java.util.ArrayList;
 
-public class Producto {
+public class Producto implements Compararble <Producto>{
 	private String nombre; 
 	private int codigo; 
 	private TipoProducto tipo;
@@ -76,6 +76,21 @@ public class Producto {
 				this.tipo=t;
 			}
 		}
+	}
+
+	@Override
+	public int comparar(Producto objeto1, Producto objeto2) {
+		// TODO Auto-generated method stub
+		int resultado = 0;
+		if (objeto1.getPrecio()>objeto2.getPrecio()) {
+			resultado=1;
+		}
+		else if (objeto1.getPrecio()==objeto2.getPrecio()) {
+			resultado=0;
+		} else {
+			resultado=-1;
+		}
+		return resultado;
 	}
 	
 }
