@@ -10,7 +10,7 @@ package datos;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Reserva {
+public class Reserva implements Compararble <Reserva> {
 	private int codigo;
 	private Socio socio;
 	private Mesa mesa;
@@ -94,6 +94,19 @@ public class Reserva {
 			precio = precio + productos.get(i).getPrecio();
 		}
 		this.precio=precio;		
+	}
+
+	@Override
+	public int comparar(Reserva objeto1, Reserva objeto2) {
+		// TODO Auto-generated method stub
+		int resultado=0;
+		if (objeto1.getFecha().after(objeto2.getFecha())) {
+			resultado=1;
+		} 
+		else if (objeto1.getFecha().before(objeto2.getFecha())) {
+			resultado=-1;
+		}
+		return resultado;
 	}
 	
 }

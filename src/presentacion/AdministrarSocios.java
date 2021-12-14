@@ -62,10 +62,13 @@ public class AdministrarSocios extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(41, 63, 300, 341);
+		contentPane.add(scrollPane);
+		
 		
 		list = new JList();
-		list.setBounds(41, 63, 300, 341);
-		contentPane.add(list);
+		scrollPane.setViewportView(list);
 		list.setModel(listaModeloSocios);
 		
 		JLabel lblNewLabel = new JLabel("Socios");
