@@ -9,7 +9,7 @@ package datos;
 
 import java.util.ArrayList;
 
-public class Producto implements Compararble <Producto>{
+public class Producto implements Comparable <Producto>{
 	private String nombre; 
 	private int codigo; 
 	private TipoProducto tipo;

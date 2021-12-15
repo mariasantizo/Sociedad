@@ -10,7 +10,7 @@ package datos;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Reserva implements Compararble <Reserva> {
+public class Reserva implements Comparable <Reserva> {
 	private int codigo;
 	private Socio socio;
 	private Mesa mesa;
