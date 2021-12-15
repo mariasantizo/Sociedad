@@ -9,7 +9,7 @@ package datos;
 
 import java.util.ArrayList;
 
-public class Producto implements Comparable <Producto>{
+public class Producto implements Comparable <Producto>, Buscable <Producto>{
 	private String nombre; 
 	private int codigo; 
 	private TipoProducto tipo;
@@ -78,6 +78,11 @@ public class Producto implements Comparable <Producto>{
 		}
 	}
 
+	/**
+	 * Es el método que proviene de la interfaz Comparable, compara dos productos segun sus precios
+	 * @author mariasantizo
+	 */
+	
 	@Override
 	public int comparar(Producto objeto1, Producto objeto2) {
 		// TODO Auto-generated method stub
@@ -92,5 +97,28 @@ public class Producto implements Comparable <Producto>{
 		}
 		return resultado;
 	}
+
+	/**
+	 * Es el método que proviene de la interfaz Buscable, escoge un producto con un precio exacto
+	 * @author malensanz
+	 */
 	
+	@Override
+	public Object buscar(ArrayList<Producto> array, Producto objeto) {	
+		int start=0;
+		int end=array.size()-1;
+		while (start<=end){
+			int mid=(start+end)/2;
+			if (array.get(mid).getPrecio()==objeto.getPrecio()){
+				System.out.println(mid);
+				return mid;
+			}else if (objeto.getPrecio()<array.get(mid).getPrecio()) {
+				end= mid-1;
+			}else{
+				start=mid+1;
+			}
+			}
+		System.out.println("No hay ningun producto con ese precio en el array");
+		return -1;
+	}
 }

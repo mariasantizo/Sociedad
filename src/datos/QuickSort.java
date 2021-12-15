@@ -1,6 +1,6 @@
 package datos;
 
-public class QuickSort implements Busqueda{
+public class QuickSort implements Ordenable{
 
 	public static int pivot(int[] array, int low, int high) {
 		int pivot = array[low];
@@ -24,7 +24,7 @@ public class QuickSort implements Busqueda{
 	
 	
 	@Override
-	public int[] buscar(int[] array, int low, int high) {
+	public int[] ordenar (int[] array, int low, int high) {
 		if (array.length==1 || array.length==0) {
 		} else {
 			if (low<high) {
@@ -32,9 +32,9 @@ public class QuickSort implements Busqueda{
 				int p=0;
 				p=pivot(array, low, high);
 				//2. Llamar a quickSort con la parte izquierda del array
-				buscar(array, low, p);
+				ordenar(array, low, p);
 				//3. Llamar a quickSort con la parte derecha del array
-				buscar(array, p+1, high);
+				ordenar(array, p+1, high);
 			}
 		}
 		return array;

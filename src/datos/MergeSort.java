@@ -3,7 +3,7 @@ package datos;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class MergeSort implements Busqueda {
+public class MergeSort implements Ordenable {
 
 	public int[] merge(int[] array, int low1, int high1, int low2, int high2)	{
 		int[] arrayResultado = new int [(high1-low1)+(high2-low2)];
@@ -35,13 +35,13 @@ public class MergeSort implements Busqueda {
 	//no trivial: partir, m izq, m der, mezclar
 	
 	@Override
-	public int[] buscar(int[] array, int low, int high) {
+	public int[] ordenar(int[] array, int low, int high) {
 		// TODO Auto-generated method stub
 		int[] arrayResultado = new int[array.length];
 		if (array.length==1 || array.length==0) {
 		} else {
-			buscar(array, low, high/2);
-			buscar(array, (high/2)+1, high);
+			ordenar(array, low, high/2);
+			ordenar(array, (high/2)+1, high);
 			arrayResultado=merge(array, low, high/2, (high/2)+1, high);
 		}
 		return arrayResultado;

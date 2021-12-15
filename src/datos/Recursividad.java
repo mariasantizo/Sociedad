@@ -22,9 +22,31 @@ public class Recursividad {
 		return array;
 	}
 	
-	public static Object busquedaBinaria(ArrayList<Object> array) {
-		return null;
-	}
+	public static Object searchBinary (ArrayList <Object> array, Object o){
+			return null;
+			}
+	
+	/**
+	 * Busca un número concreto del array 
+	 */
+	public static int busquedaBinaria(int[] array, int x) {
+		// Initial condition expects Array is sorted
+		int start=0;
+		int end=array.length-1;
+		while (start<=end){
+			int mid=(start+end)/2;
+			if (array[mid]==x){
+				System.out.println(mid);
+				return mid;
+			}else if (x<array[mid]) {
+				end= mid-1;
+			}else{
+				start=mid+1;
+			}
+			}
+		System.out.println("No esta ese numero en el array");
+		return -1;
+		}
 	
 	/**
 	 * Coge un numero que se quede en medio. Los elementos de la izquierda serán menores y los de la derecha mayores.
@@ -95,6 +117,9 @@ public class Recursividad {
 		for (int i=0; i<array.length; i++) {
 			System.out.println(array[i]);
 		}*/
+		
+		
+		/*int[] array={1, 4, 8, 12, 25};
+		busquedaBinaria(array, 0);*/
 	}
-	
 }
