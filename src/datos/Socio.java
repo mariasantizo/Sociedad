@@ -26,6 +26,13 @@ public class Socio extends Persona{
 		this.tipoCuota=tipoCuota;
 		this.cuota=cuota;
 	}
+	
+	public Socio(String dni, String nombre, String apellido, int telefono, String direccion, int numeroSocio, String tipoCuota, int cuota) {
+		super(dni, nombre, apellido, telefono, direccion);
+		this.numeroSocio=numeroSocio;
+		this.tipoCuota=tipoCuota;
+		this.cuota=cuota;
+	}
 
 	public Socio(String tipoCuota) {
 		super();

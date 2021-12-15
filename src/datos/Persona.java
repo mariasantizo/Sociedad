@@ -26,6 +26,15 @@ public abstract class Persona {
 		this.contrasena= contrasena;
 	}
 	
+	public Persona(String dni, String nombre, String apellido, int telefono, String direccion) {
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.telefono = telefono;
+		this.direccion = direccion;
+	}
+	
 	public Persona() {
 		
 	}
@@ -89,7 +98,7 @@ public abstract class Persona {
 	
 	@Override
 	public String toString() {
-		return nombre;
+		return nombre+" "+apellido;
 	}
 	
 	

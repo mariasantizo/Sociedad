@@ -27,9 +27,10 @@ public class AdministrarSocios extends JFrame {
 	private JPanel contentPane;
 	private ArrayList<Socio> arraySocios;
 	private JList<Socio> list;
+	private JButton btnVerInfo;
 
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -40,7 +41,7 @@ public class AdministrarSocios extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
@@ -50,11 +51,7 @@ public class AdministrarSocios extends JFrame {
 		DefaultListModel<Socio> listaModeloSocios = new DefaultListModel<>();
 		for (Socio s: arraySocios) {
 			listaModeloSocios.addElement(s);
-			System.out.println("entro");
 		}
-		Socio s = new Socio();
-		s.setNombre("a");
-		listaModeloSocios.addElement(s);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 708, 464);
 		contentPane = new JPanel();
@@ -72,13 +69,13 @@ public class AdministrarSocios extends JFrame {
 		list.setModel(listaModeloSocios);
 		
 		JLabel lblNewLabel = new JLabel("Socios");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblNewLabel.setBounds(58, 26, 136, 26);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Ver Información");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.addActionListener(new ActionListener() {
+		btnVerInfo = new JButton("Ver Información");
+		btnVerInfo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnVerInfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (list.getSelectedIndex()==-1) {
 					
@@ -90,8 +87,9 @@ public class AdministrarSocios extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(397, 112, 241, 32);
-		contentPane.add(btnNewButton);
+		btnVerInfo.setBounds(397, 112, 241, 32);
+		contentPane.add(btnVerInfo);
+		btnVerInfo.setEnabled(true);
 		
 		JButton btnNewButton_1 = new JButton("Eliminar socio");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -104,9 +102,29 @@ public class AdministrarSocios extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Añadir socio");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AnadirSocio anadir = new AnadirSocio();
+				anadir.setVisible(true);
+				AdministrarSocios.this.setVisible(false);
+				
+			}
+		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton_2.setBounds(397, 184, 241, 32);
 		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Volver");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuAdministradores a = new MenuAdministradores();
+				a.setVisible(true);
+				AdministrarSocios.this.setVisible(false);
+			}
+		});
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_3.setBounds(397, 311, 241, 32);
+		contentPane.add(btnNewButton_3);
 		
 	}
 }

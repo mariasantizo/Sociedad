@@ -6,10 +6,26 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.FlowLayout;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
 public class AnadirSocio extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textFieldNombre;
+	private JTextField textFieldApellido;
+	private JTextField textFieldDNI;
+	private JTextField textFieldTelefono;
+	private JTextField textFieldDireccion;
+	private JTextField textFieldNumeroSocio;
+	private JLabel lblNewLabel_7;
+	private JComboBox comboBox;
 
 	/**
 	 * Launch the application.
@@ -32,11 +48,100 @@ public class AnadirSocio extends JFrame {
 	 */
 	public AnadirSocio() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 720, 490);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Añadir Socio");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 32));
+		lblNewLabel.setBounds(33, 37, 279, 39);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("Aceptar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AdministrarSocios a = new AdministrarSocios();
+				a.setVisible(true);
+				AnadirSocio.this.setVisible(false);
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton.setBounds(479, 398, 204, 33);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_1 = new JLabel("Nombre: ");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1.setBounds(87, 87, 117, 33);
+		contentPane.add(lblNewLabel_1);
+		
+		textFieldNombre = new JTextField();
+		textFieldNombre.setBounds(268, 87, 194, 30);
+		contentPane.add(textFieldNombre);
+		textFieldNombre.setColumns(10);
+		
+		textFieldApellido = new JTextField();
+		textFieldApellido.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textFieldApellido.setBounds(268, 128, 194, 30);
+		contentPane.add(textFieldApellido);
+		textFieldApellido.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Apellido: ");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_2.setBounds(87, 131, 129, 25);
+		contentPane.add(lblNewLabel_2);
+		
+		textFieldDNI = new JTextField();
+		textFieldDNI.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textFieldDNI.setBounds(268, 170, 194, 25);
+		contentPane.add(textFieldDNI);
+		textFieldDNI.setColumns(10);
+		
+		JLabel lblNewLabel_3 = new JLabel("DNI: ");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_3.setBounds(87, 167, 117, 30);
+		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("Teléfono: ");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_4.setBounds(87, 208, 129, 25);
+		contentPane.add(lblNewLabel_4);
+		
+		textFieldTelefono = new JTextField();
+		textFieldTelefono.setBounds(268, 206, 194, 30);
+		contentPane.add(textFieldTelefono);
+		textFieldTelefono.setColumns(10);
+		
+		JLabel lblNewLabel_5 = new JLabel("Dirección: ");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_5.setBounds(87, 244, 129, 25);
+		contentPane.add(lblNewLabel_5);
+		
+		textFieldDireccion = new JTextField();
+		textFieldDireccion.setBounds(268, 247, 194, 26);
+		contentPane.add(textFieldDireccion);
+		textFieldDireccion.setColumns(10);
+		
+		JLabel lblNewLabel_6 = new JLabel("Número de socio: ");
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_6.setBounds(87, 288, 171, 25);
+		contentPane.add(lblNewLabel_6);
+		
+		textFieldNumeroSocio = new JTextField();
+		textFieldNumeroSocio.setBounds(268, 284, 194, 29);
+		contentPane.add(textFieldNumeroSocio);
+		textFieldNumeroSocio.setColumns(10);
+		
+		lblNewLabel_7 = new JLabel("Tipo de cuota: ");
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_7.setBounds(85, 332, 154, 25);
+		contentPane.add(lblNewLabel_7);
+		
+		String[] tiposCuota= {"Anual", "Semestral", "Trimestral", "Mensual"};
+		comboBox = new JComboBox(tiposCuota);
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		comboBox.setBounds(268, 337, 194, 22);
+		contentPane.add(comboBox);
 	}
-
 }
