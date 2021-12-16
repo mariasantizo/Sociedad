@@ -61,11 +61,11 @@ public class MenuAdministradores extends JFrame {
 		btnAdministrarSocios.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(btnAdministrarSocios);
 		
-		JButton btnVerCuentas = new JButton("Consultar cuentas");
+		JButton btnVerCuentas = new JButton("Administrar cuentas");
 		btnVerCuentas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ConsultarCuentas consultas = new ConsultarCuentas();
-				consultas.setVisible(true);
+				AdministrarCuentas a = new AdministrarCuentas();
+				a.setVisible(true);
 				MenuAdministradores.this.setVisible(false);
 			}
 		});

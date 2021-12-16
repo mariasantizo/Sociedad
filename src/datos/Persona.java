@@ -93,7 +93,6 @@ public abstract class Persona {
 	 * @author mariasantizo
 	 */
 	public void calcularCuota() {
-		
 	}
 	
 	@Override

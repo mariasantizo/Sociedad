@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import datos.Socio;
+import gestorBD.GestorBD;
+
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -27,10 +31,8 @@ public class AnadirSocio extends JFrame {
 	private JLabel lblNewLabel_7;
 	private JComboBox comboBox;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
+	
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -41,7 +43,7 @@ public class AnadirSocio extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
@@ -61,14 +63,16 @@ public class AnadirSocio extends JFrame {
 		
 		JButton btnNewButton = new JButton("Aceptar");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {				
+				Socio s = new Socio(textFieldDNI.getText(), textFieldNombre.getText(), textFieldApellido.getText(), Integer.parseInt(textFieldTelefono.getText()), textFieldDireccion.getText(), Integer.parseInt(textFieldNumeroSocio.getText()), (String)comboBox.getSelectedItem(), 960);
+				GestorBD.insertSocio(s);
 				AdministrarSocios a = new AdministrarSocios();
 				a.setVisible(true);
 				AnadirSocio.this.setVisible(false);
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.setBounds(479, 398, 204, 33);
+		btnNewButton.setBounds(499, 398, 184, 33);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre: ");
@@ -77,13 +81,14 @@ public class AnadirSocio extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		textFieldNombre = new JTextField();
-		textFieldNombre.setBounds(268, 87, 194, 30);
+		textFieldNombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textFieldNombre.setBounds(268, 87, 279, 30);
 		contentPane.add(textFieldNombre);
 		textFieldNombre.setColumns(10);
 		
 		textFieldApellido = new JTextField();
 		textFieldApellido.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		textFieldApellido.setBounds(268, 128, 194, 30);
+		textFieldApellido.setBounds(268, 128, 279, 30);
 		contentPane.add(textFieldApellido);
 		textFieldApellido.setColumns(10);
 		
@@ -94,7 +99,7 @@ public class AnadirSocio extends JFrame {
 		
 		textFieldDNI = new JTextField();
 		textFieldDNI.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		textFieldDNI.setBounds(268, 170, 194, 25);
+		textFieldDNI.setBounds(268, 170, 279, 25);
 		contentPane.add(textFieldDNI);
 		textFieldDNI.setColumns(10);
 		
@@ -109,7 +114,8 @@ public class AnadirSocio extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		textFieldTelefono = new JTextField();
-		textFieldTelefono.setBounds(268, 206, 194, 30);
+		textFieldTelefono.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textFieldTelefono.setBounds(268, 206, 279, 30);
 		contentPane.add(textFieldTelefono);
 		textFieldTelefono.setColumns(10);
 		
@@ -119,7 +125,8 @@ public class AnadirSocio extends JFrame {
 		contentPane.add(lblNewLabel_5);
 		
 		textFieldDireccion = new JTextField();
-		textFieldDireccion.setBounds(268, 247, 194, 26);
+		textFieldDireccion.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textFieldDireccion.setBounds(268, 247, 279, 26);
 		contentPane.add(textFieldDireccion);
 		textFieldDireccion.setColumns(10);
 		
@@ -129,7 +136,8 @@ public class AnadirSocio extends JFrame {
 		contentPane.add(lblNewLabel_6);
 		
 		textFieldNumeroSocio = new JTextField();
-		textFieldNumeroSocio.setBounds(268, 284, 194, 29);
+		textFieldNumeroSocio.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textFieldNumeroSocio.setBounds(268, 284, 279, 29);
 		contentPane.add(textFieldNumeroSocio);
 		textFieldNumeroSocio.setColumns(10);
 		
@@ -141,7 +149,19 @@ public class AnadirSocio extends JFrame {
 		String[] tiposCuota= {"Anual", "Semestral", "Trimestral", "Mensual"};
 		comboBox = new JComboBox(tiposCuota);
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		comboBox.setBounds(268, 337, 194, 22);
+		comboBox.setBounds(268, 337, 279, 22);
 		contentPane.add(comboBox);
+		
+		JButton btnNewButton_1 = new JButton("Volver");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AdministrarSocios a = new AdministrarSocios();
+				a.setVisible(true);
+				AnadirSocio.this.setVisible(false);
+			}
+		});
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_1.setBounds(48, 398, 145, 33);
+		contentPane.add(btnNewButton_1);
 	}
 }

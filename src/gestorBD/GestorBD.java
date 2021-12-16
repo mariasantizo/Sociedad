@@ -57,24 +57,23 @@ public class GestorBD {
 	 * Inserta Socios en la BD
 	 * @author mariasantizo
 	 */
-	public static void insertSocio(String dni, String nombre, String apellido, int telefono, String direccion, String contrasena, int numeroSocio, String tipoCuota, int cuota) {
+	public static void insertSocio(Socio s) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
-		String sql = "INSERT INTO SOCIO VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO SOCIO VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try (Connection conn = DriverManager.getConnection(url);
 			PreparedStatement pstmt = conn.prepareStatement(sql)){
 			
-			pstmt.setString(1, dni);
-			pstmt.setString(2, nombre);
-			pstmt.setString(3, apellido);
-			pstmt.setInt(4, telefono);
-			pstmt.setString(5, direccion);
-			pstmt.setString(6, contrasena);
-			pstmt.setInt(7, numeroSocio);
-			pstmt.setString(8, tipoCuota);
-			pstmt.setInt(9, cuota);
+			pstmt.setString(1, s.getDni());
+			pstmt.setString(2, s.getNombre());
+			pstmt.setString(3, s.getApellido());
+			pstmt.setInt(4, s.getTelefono());
+			pstmt.setString(5, s.getDireccion());
+			pstmt.setInt(6, s.getCuota());
+			pstmt.setString(7, s.getTipoCuota());
+			pstmt.setInt(8, s.getCuota());
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -517,14 +516,12 @@ public class GestorBD {
     	}
     }
     
-    
-    
     /**
      * Delete a warehouse specified by the id
      *
      * @param id
      */
-    public void delete(String dni)
+    public static void deleteSocio(String dni)
     {
     	String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;

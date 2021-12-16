@@ -94,7 +94,13 @@ public class AdministrarSocios extends JFrame {
 		JButton btnNewButton_1 = new JButton("Eliminar socio");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				if (list.getSelectedIndex()==-1) {
+					
+				} else {
+					String dni = listaModeloSocios.get(list.getSelectedIndex()).getDni();
+					GestorBD.deleteSocio(dni);
+					listaModeloSocios.remove(list.getSelectedIndex());
+				}
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
