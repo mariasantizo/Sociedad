@@ -17,9 +17,7 @@ public class ConsultarCuentas extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -31,7 +29,7 @@ public class ConsultarCuentas extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
@@ -71,7 +69,7 @@ public class ConsultarCuentas extends JFrame {
 		JButton btnNewButton_4 = new JButton("Volver");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MenuAdministradores a = new MenuAdministradores();
+				AdministrarCuentas a = new AdministrarCuentas();
 				a.setVisible(true);
 				ConsultarCuentas.this.setVisible(false);
 			}

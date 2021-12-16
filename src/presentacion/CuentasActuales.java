@@ -46,7 +46,7 @@ public class CuentasActuales extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Almacen");
+		JButton btnNewButton = new JButton("Almacén");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

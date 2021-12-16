@@ -121,4 +121,10 @@ public class Producto implements Comparable <Producto>, Buscable <Producto>{
 		System.out.println("No hay ningun producto con ese precio en el array");
 		return -1;
 	}
+	
+	@Override
+	public String toString() {
+		return nombre+" - "+precio+"€";
+		
+	}
 }
