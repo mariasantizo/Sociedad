@@ -355,9 +355,11 @@ public class GestorBD {
     			Statement stmt = conn.createStatement();
     			ResultSet rs = stmt.executeQuery(sql)){
     		while (rs.next()) {
-    			Calendar c = new GregorianCalendar();
+    			//Calendar c = new GregorianCalendar();
+    			//Calendar c = rs.getObject(1, Calendar.class);
+    			//Calendar c1 = (Calendar) rs.getObject("FECHA");
     			//calendar y date no son compatibles, revisar esto!!!!
-    			//Reserva r = new Reserva(rs.getInt("CODIGO"), rs.getString("DNISOCIO"), rs.getInt("CODIGOMESA"), rs.getDate("FECHA"), rs.getString("HORARIO"));
+    			//Reserva r = new Reserva (rs.getInt("CODIGO"), rs.getString("DNISOCIO"), rs.getInt("CODIGOMESA"), rs.getString("FECHA"), rs.getString("HORARIO"));
     			System.out.println(
     			rs.getInt("CODIGO") + "\t"+
     			rs.getString("DNISOCIO") + "\t"+
@@ -575,10 +577,20 @@ public class GestorBD {
     }
     
     public static void main(String[] args) {
-		ArrayList<Socio> socios = new ArrayList<Socio>();
+		/*ArrayList<Socio> socios = new ArrayList<Socio>();
     	socios=selectAllSocio();
     	for (int i=0; i<socios.size(); i++) {
     		System.out.println(socios.get(i).getNombre());
-    	}
-	}
+    	}*/
+    	//createNewDatabase("BaseDeDatos.db");
+    	//createTable();
+    	/*Socio s1=new Socio("72451234A","Ana", "Sanchez", 687333222, "Avenida 8", "1234", 1, "Anual", 960);
+    	Socio s2=new Socio("70001234U","Jon", "Murua", 688883222, "Kale Nagusia 8", "5678", 2, "Anual", 960);
+    	insertSocio(s1);
+    	insertSocio(s2);*/
+    	
+    	//insertAdministrador("43676767E", "Mikel", "Etxeberria", 677676767, "Balea kalea", "0000");
+    	//insertMesa(1, 10);
+    	//insertReserva(1, 1, 1, "12/12/2021", "Comida");
+    }
 }

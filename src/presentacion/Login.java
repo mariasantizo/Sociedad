@@ -94,20 +94,19 @@ public class Login extends JFrame {
 				String passwordTexto= passwordFieldContrasena.getText();
 				boolean usuarioEncontrado=false;
 				for (int i=0; i<arraySocios.size();i++){
-					if(textoUsuario.equals(arraySocios.get(i).getNombre()) && passwordTexto.equals(((Socio) arraySocios.get(i)).getContrasena())){
+					if(textoUsuario.equals(arraySocios.get(i).getDni()) && passwordTexto.equals(((Socio) arraySocios.get(i)).getContrasena())){
 						usuarioEncontrado=true;	
 							Socios socios=new Socios (Login.this, arraySocios.get(i));
 							socios.setVisible(true);
 							Login.this.setVisible(false);
-						}else{
-							if(textoUsuario.equals(arrayAdmins.get(i).getNombre()) && passwordTexto.equals(((Administrador) arrayAdmins.get(i)).getContrasena())){
+						}else if(textoUsuario.equals(arrayAdmins.get(i).getDni()) && passwordTexto.equals(((Administrador) arrayAdmins.get(i)).getContrasena())){
 								usuarioEncontrado=true;	
 								Administradores admins =new Administradores (arrayAdmins.get(i));
 								admins.setVisible(true);
 								Login.this.setVisible(false);
 							}
 						}
-						}
+						
 				if(usuarioEncontrado==false) {
 					JOptionPane.showMessageDialog(Login.this, "Usuario o contraseña incorrectas");
 				}

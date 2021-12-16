@@ -66,7 +66,7 @@ public class CreateTable {
 				+ "CAPACIDAD NUMBER"
 				+ ");";
 		
-		String sqlReserva = "CREATE TABLE IF NOT EXISTS EVENTO (\n"
+		String sqlReserva = "CREATE TABLE IF NOT EXISTS RESERVA (\n"
 				+ "CODIGO NUMBER PRIMARY KEY, \n"
 				+ "DNISOCIO TEXT REFERENCES SOCIO(DNI), \n"
 				+ "CODIGOMESA NUMBER REFERENCES MESA(CODIGOMESA), \n"

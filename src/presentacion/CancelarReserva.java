@@ -28,9 +28,6 @@ public class CancelarReserva extends JFrame {
 	private ArrayList<Reserva> arrayReservas;
 	private JList<Reserva> list;
 
-	/**
-	 * Launch the application.
-	 */
 /*	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -64,6 +61,14 @@ public class CancelarReserva extends JFrame {
 		contentPane.setLayout(null);
 		this.setTitle("Cancelar reserva");
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(63, 78, 238, 286);
+		contentPane.add(scrollPane);
+		
+		list = new JList();
+		scrollPane.setViewportView(list);
+		list.setModel(listaModeloReservas);
+		
 		JLabel lblElijaLaReserva = new JLabel("Elija la reserva que quiere cancelar:");
 		lblElijaLaReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblElijaLaReserva.setBounds(38, 33, 425, 43);
@@ -86,13 +91,5 @@ public class CancelarReserva extends JFrame {
 		btnAceptar.setBounds(344, 335, 115, 29);
 		contentPane.add(btnAceptar);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(63, 78, 238, 286);
-		contentPane.add(scrollPane);
-		
-		
-		list = new JList();
-		scrollPane.setViewportView(list);
-		list.setModel(listaModeloReservas);
 	}
 }
