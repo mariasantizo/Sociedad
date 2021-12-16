@@ -58,6 +58,7 @@ public class CreateTable {
 				+ " APELLIDO TEXT NOT NULL, \n"
 				+ " TELEFONO NUMBER, \n"
 				+ " DIRECCION TEXT \n"
+				+ " CONTRASENA TEXT, \n"
 				+ ");";
 		
 		String sqlMesa = "CREATE TABLE IF NOT EXISTS MESA (\n"

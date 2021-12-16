@@ -96,7 +96,7 @@ public class Login extends JFrame {
 				for (int i=0; i<arraySocios.size();i++){
 					if(textoUsuario.equals(arraySocios.get(i).getNombre()) && passwordTexto.equals(((Socio) arraySocios.get(i)).getContrasena())){
 						usuarioEncontrado=true;	
-							Socios socios=new Socios (Login.this, textFieldUsuario);
+							Socios socios=new Socios (Login.this, arraySocios.get(i));
 							socios.setVisible(true);
 							Login.this.setVisible(false);
 						}else{

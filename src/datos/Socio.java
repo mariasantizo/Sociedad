@@ -1,5 +1,6 @@
 package datos;
 
+import java.util.ArrayList;
 
 /**
  * Desciende de la clase Persona, representa cada socio de la sociedad

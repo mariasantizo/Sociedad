@@ -61,7 +61,7 @@ public class GestorBD {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
-		String sql = "INSERT INTO SOCIO VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO SOCIO VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try (Connection conn = DriverManager.getConnection(url);
 			PreparedStatement pstmt = conn.prepareStatement(sql)){
@@ -71,9 +71,10 @@ public class GestorBD {
 			pstmt.setString(3, s.getApellido());
 			pstmt.setInt(4, s.getTelefono());
 			pstmt.setString(5, s.getDireccion());
-			pstmt.setInt(6, s.getCuota());
-			pstmt.setString(7, s.getTipoCuota());
-			pstmt.setInt(8, s.getCuota());
+			pstmt.setString(6, s.getContrasena());
+			pstmt.setInt(7, s.getCuota());
+			pstmt.setString(8, s.getTipoCuota());
+			pstmt.setInt(9, s.getCuota());
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -309,14 +310,14 @@ public class GestorBD {
     	ArrayList<Socio> socios = new ArrayList<Socio>();
     	String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
-    	String sql = "SELECT dni, nombre, apellido, telefono, direccion, numeroSocio, tipoCuota, cuota FROM SOCIO";
+    	String sql = "SELECT dni, nombre, apellido, telefono, direccion, contrasena, numeroSocio, tipoCuota, cuota FROM SOCIO";
         try (Connection conn = DriverManager.getConnection(url);
         		Statement stmt  = conn.createStatement();
                 ResultSet rs    = stmt.executeQuery(sql)) {
             // loop through the result set
             while (rs.next())
             {
-            	Socio s = new Socio (rs.getString("dni"), rs.getString("nombre"), rs.getString("apellido"), rs.getInt("telefono"), rs.getString("direccion"), rs.getInt("numeroSocio"), rs.getString("tipoCuota"), rs.getInt("cuota"));
+            	Socio s = new Socio (rs.getString("dni"), rs.getString("nombre"), rs.getString("apellido"), rs.getInt("telefono"), rs.getString("direccion"), rs.getString("contrasena"), rs.getInt("numeroSocio"), rs.getString("tipoCuota"), rs.getInt("cuota"));
                 socios.add(s);      
             }
         } catch (SQLException e)
@@ -547,6 +548,32 @@ public class GestorBD {
         }
     }
 	
+    public static void deleteReserva(int codigo)
+    {
+    	String name = "BaseDeDatos.db";
+		String url = "jdbc:sqlite:"+name;
+    	String sql = "DELETE FROM RESERVA WHERE codigo = ?";
+
+        try
+                (
+                        Connection conn = DriverManager.getConnection(url);
+                        PreparedStatement pstmt = conn.prepareStatement(sql)
+                )
+        {
+
+            // set the corresponding param
+            pstmt.setInt(1, codigo);
+
+            // execute the delete statement
+            pstmt.executeUpdate();
+
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     public static void main(String[] args) {
 		ArrayList<Socio> socios = new ArrayList<Socio>();
     	socios=selectAllSocio();

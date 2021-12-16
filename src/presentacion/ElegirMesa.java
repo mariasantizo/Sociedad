@@ -49,7 +49,7 @@ public class ElegirMesa extends JFrame {
 	 */
 	public ElegirMesa() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 861, 692);
+		setBounds(100, 100, 618, 697);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -58,7 +58,7 @@ public class ElegirMesa extends JFrame {
 		
 		lblELEGIR = new JLabel("Reserva de mesa: \r\nComida el 16-12-2021");
 		lblELEGIR.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblELEGIR.setBounds(102, 31, 437, 54);
+		lblELEGIR.setBounds(78, 33, 437, 54);
 		contentPane.add(lblELEGIR);
 		
 		lblDisponibles = new JLabel("DISPONIBLES");
@@ -66,16 +66,16 @@ public class ElegirMesa extends JFrame {
 		contentPane.add(lblDisponibles);
 		
 		lblReservados = new JLabel("RESERVADOS:");
-		lblReservados.setBounds(569, 117, 134, 20);
+		lblReservados.setBounds(365, 117, 134, 20);
 		contentPane.add(lblReservados);
 		
 		lblPlanoDelComedor = new JLabel("PLANO DEL COMEDOR:");
-		lblPlanoDelComedor.setBounds(42, 344, 207, 20);
+		lblPlanoDelComedor.setBounds(209, 327, 207, 20);
 		contentPane.add(lblPlanoDelComedor);
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Alumno\\Documents\\Workspace\\Proyecto\\plano.png"));
-		lblNewLabel.setBounds(227, 345, 368, 275);
+		lblNewLabel.setBounds(102, 345, 368, 275);
 		contentPane.add(lblNewLabel);
 		
 		JList list = new JList();
@@ -88,11 +88,11 @@ public class ElegirMesa extends JFrame {
 				return values[index];
 			}
 		});
-		list.setBounds(63, 153, 189, 147);
+		list.setBounds(77, 153, 106, 147);
 		contentPane.add(list);
 		
 		JList list_1 = new JList();
-		list_1.setBounds(535, 153, 189, 147);
+		list_1.setBounds(364, 153, 106, 147);
 		contentPane.add(list_1);
 	}
 }
