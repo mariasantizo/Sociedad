@@ -360,13 +360,6 @@ public class GestorBD {
     			Statement stmt = conn.createStatement();
     			ResultSet rs = stmt.executeQuery(sql)){
     		while (rs.next()) {
-    			
-    			//Calendar c = new GregorianCalendar();
-    			//Calendar c = rs.getObject(1, Calendar.class);
-    			//Calendar c1 = (Calendar) rs.getObject("FECHA");
-    			//calendar y date no son compatibles, revisar esto!!!!
-    			//String fecha=null;
-    			//c.toString();
     			//Reserva r = new Reserva (rs.getInt("CODIGO"), rs.getString("DNISOCIO"), rs.getInt("CODIGOMESA"), rs.getString("FECHA"), rs.getString("HORARIO"));
     			//reservas.add(r);
     		}
