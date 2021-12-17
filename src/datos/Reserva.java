@@ -109,4 +109,10 @@ public class Reserva implements Comparable <Reserva> {
 		return resultado;
 	}
 	
+	@Override
+	public String toString() {
+		return "Reserva Nº: "+codigo+" - "+"fecha"+" - "+"horario"+" en la mesa: "+"mesa.getCodigoMesa()"+" - ";
+		
+	}
+	
 }

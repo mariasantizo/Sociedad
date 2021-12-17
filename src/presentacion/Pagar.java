@@ -35,11 +35,12 @@ public class Pagar extends JFrame {
 	 */
 	public Pagar(JFrame ventanaAnterior, Socio socio) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 596, 481);
+		setBounds(100, 100, 612, 537);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		this.setTitle("Login > Socios > Pagar");
 		
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {

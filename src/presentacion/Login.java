@@ -22,6 +22,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class Login extends JFrame {
 
@@ -52,42 +54,47 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		//error indexoutofbounds
 		arraySocios= GestorBD.selectAllSocio();
 		arrayAdmins=GestorBD.selectAllAdministrador();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 558, 331);
+		setBounds(100, 100, 524, 377);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		this.setTitle("Inicio Sesión");
 		
-		JLabel labelBienvenida = new JLabel("BIENVENIDO A LA SOCIEDAD");
-		labelBienvenida.setForeground(SystemColor.textHighlight);
+		JLabel labelBienvenida = new JLabel("BIENVENID@ A LA SOCIEDAD");
+		labelBienvenida.setForeground(Color.BLACK);
 		labelBienvenida.setFont(new Font("Tahoma", Font.BOLD, 20));
-		labelBienvenida.setBounds(109, 16, 382, 60);
+		labelBienvenida.setBounds(109, 16, 315, 60);
 		contentPane.add(labelBienvenida);
 		
 		JLabel lblUsuario = new JLabel("Usuario:");
-		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblUsuario.setBounds(55, 105, 156, 34);
+		lblUsuario.setForeground(Color.WHITE);
+		lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 22));
+		lblUsuario.setBounds(66, 114, 156, 34);
 		contentPane.add(lblUsuario);
 		
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a:");
-		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblContrasea.setBounds(55, 166, 156, 34);
+		lblContrasea.setForeground(Color.WHITE);
+		lblContrasea.setFont(new Font("Tahoma", Font.BOLD, 22));
+		lblContrasea.setBounds(66, 175, 156, 34);
 		contentPane.add(lblContrasea);
 		
 		textFieldUsuario = new JTextField();
-		textFieldUsuario.setBounds(255, 111, 146, 26);
+		textFieldUsuario.setBounds(282, 120, 146, 26);
 		contentPane.add(textFieldUsuario);
 		textFieldUsuario.setColumns(10);
 		
 		passwordFieldContrasena = new JPasswordField();
-		passwordFieldContrasena.setBounds(255, 172, 146, 26);
+		passwordFieldContrasena.setBounds(282, 181, 146, 26);
 		contentPane.add(passwordFieldContrasena);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setForeground(Color.BLACK);
+		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String textoUsuario = textFieldUsuario.getText();
@@ -112,7 +119,12 @@ public class Login extends JFrame {
 				}
 			}
 		});
-		btnAceptar.setBounds(393, 230, 115, 29);
+		btnAceptar.setBounds(372, 264, 115, 29);
 		contentPane.add(btnAceptar);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("C:\\Users\\Alumno\\Documents\\Workspace\\Proyecto\\fondo.jpg"));
+		label.setBounds(0, 0, 538, 321);
+		contentPane.add(label);
 	}
 }

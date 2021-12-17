@@ -101,4 +101,10 @@ public class Socio extends Persona{
 		}
 	}
 	
+	@Override
+	public String toString() {
+		return "numeroSocio";
+		
+	}
+	
 }

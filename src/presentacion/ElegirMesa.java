@@ -24,9 +24,9 @@ public class ElegirMesa extends JFrame {
 	private JPanel contentPane;
 	private JLabel lblELEGIR;
 	private JLabel lblDisponibles;
-	private JLabel lblReservados;
 	private JLabel lblPlanoDelComedor;
 	private JLabel lblNewLabel;
+	private JButton btnReservar;
 
 	/**
 	 * Launch the application.
@@ -54,28 +54,24 @@ public class ElegirMesa extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		this.setTitle("Reservar mesa");
+		this.setTitle("Login > Socios > Hacer Reserva > Elegir mesa");
 		
 		lblELEGIR = new JLabel("Reserva de mesa: \r\nComida el 16-12-2021");
 		lblELEGIR.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblELEGIR.setBounds(78, 33, 437, 54);
 		contentPane.add(lblELEGIR);
 		
-		lblDisponibles = new JLabel("DISPONIBLES");
-		lblDisponibles.setBounds(77, 117, 161, 20);
+		lblDisponibles = new JLabel("MESAS DISPONIBLES");
+		lblDisponibles.setBounds(224, 103, 161, 20);
 		contentPane.add(lblDisponibles);
 		
-		lblReservados = new JLabel("RESERVADOS:");
-		lblReservados.setBounds(365, 117, 134, 20);
-		contentPane.add(lblReservados);
-		
 		lblPlanoDelComedor = new JLabel("PLANO DEL COMEDOR:");
-		lblPlanoDelComedor.setBounds(209, 327, 207, 20);
+		lblPlanoDelComedor.setBounds(208, 317, 207, 20);
 		contentPane.add(lblPlanoDelComedor);
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Alumno\\Documents\\Workspace\\Proyecto\\plano.png"));
-		lblNewLabel.setBounds(102, 345, 368, 275);
+		lblNewLabel.setBounds(103, 345, 368, 275);
 		contentPane.add(lblNewLabel);
 		
 		JList list = new JList();
@@ -88,11 +84,15 @@ public class ElegirMesa extends JFrame {
 				return values[index];
 			}
 		});
-		list.setBounds(77, 153, 106, 147);
+		list.setBounds(224, 139, 161, 162);
 		contentPane.add(list);
 		
-		JList list_1 = new JList();
-		list_1.setBounds(364, 153, 106, 147);
-		contentPane.add(list_1);
+		btnReservar = new JButton("Reservar");
+		btnReservar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnReservar.setBounds(466, 272, 115, 29);
+		contentPane.add(btnReservar);
 	}
 }

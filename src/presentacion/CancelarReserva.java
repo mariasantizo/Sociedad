@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import datos.Mesa;
 import datos.Reserva;
 import datos.Socio;
 import gestorBD.GestorBD;
@@ -27,6 +28,8 @@ public class CancelarReserva extends JFrame {
 	private JPanel contentPane;
 	private ArrayList<Reserva> arrayReservas;
 	private JList<Reserva> list;
+	private ArrayList <Mesa> arrayMesas;
+	private ArrayList <Socio> arraySocios;
 
 /*	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -45,7 +48,10 @@ public class CancelarReserva extends JFrame {
 	 * Create the frame.
 	 */
 	public CancelarReserva(JFrame ventanaAnterior, Socio socio) {
-		arrayReservas=GestorBD.selectAllReserva();
+		//error indexoutofbounds
+		arraySocios=GestorBD.selectAllSocio();
+		arrayMesas=GestorBD.selectAllMesa();
+		arrayReservas=GestorBD.selectAllReserva(arraySocios, arrayMesas);
 		DefaultListModel<Reserva> listaModeloReservas = new DefaultListModel<>();
 		for (Reserva r: arrayReservas) {
 			if (r.getSocio().getNumeroSocio()==socio.getNumeroSocio()){
@@ -53,29 +59,25 @@ public class CancelarReserva extends JFrame {
 			}
 		}
 		
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 476, 526);
+		setBounds(100, 100, 612, 537);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		this.setTitle("Cancelar reserva");
+		this.setTitle("Login > Socios > Cancelar Reserva");
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(63, 78, 238, 286);
+		scrollPane.setBounds(172, 78, 238, 286);
 		contentPane.add(scrollPane);
-		
-		list = new JList();
-		scrollPane.setViewportView(list);
-		list.setModel(listaModeloReservas);
 		
 		JLabel lblElijaLaReserva = new JLabel("Elija la reserva que quiere cancelar:");
 		lblElijaLaReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblElijaLaReserva.setBounds(38, 33, 425, 43);
+		lblElijaLaReserva.setBounds(104, 16, 425, 43);
 		contentPane.add(lblElijaLaReserva);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (list.getSelectedIndex()==-1) {
@@ -89,18 +91,24 @@ public class CancelarReserva extends JFrame {
 		});
 				
 			
-		btnAceptar.setBounds(324, 425, 115, 29);
+		btnAceptar.setBounds(428, 404, 118, 43);
 		contentPane.add(btnAceptar);
 		
 		JButton btnVolver = new JButton("Volver");
+		btnVolver.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CancelarReserva.this.dispose();
 				ventanaAnterior.setVisible(true);
 			}
 		});
-		btnVolver.setBounds(15, 425, 115, 29);
+		btnVolver.setBounds(55, 404, 124, 43);
 		contentPane.add(btnVolver);
+		
+		list = new JList();
+		list.setBounds(174, 78, 236, 284);
+		contentPane.add(list);
+		list.setModel(listaModeloReservas);
 		
 	}
 }

@@ -37,4 +37,10 @@ public class Mesa {
 		this.capacidad = capacidad;
 	}
 	
+	@Override
+	public String toString() {
+		return "codigoMesa";
+		
+	}
+	
 }
