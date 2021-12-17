@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import datos.Administrador;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -34,7 +37,7 @@ public class CuentasActuales extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CuentasActuales() {
+	public CuentasActuales(Administrador admin) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 678, 393);
 		contentPane = new JPanel();
@@ -50,7 +53,7 @@ public class CuentasActuales extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Almacen a = new Almacen();
+				Almacen a = new Almacen(admin);
 				a.setVisible(true);
 				CuentasActuales.this.setVisible(false);
 			}
@@ -79,7 +82,7 @@ public class CuentasActuales extends JFrame {
 		JButton btnNewButton_3 = new JButton("Volver");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdministrarCuentas a = new AdministrarCuentas();
+				AdministrarCuentas a = new AdministrarCuentas(admin);
 				a.setVisible(true);
 				CuentasActuales.this.setVisible(false);
 			}

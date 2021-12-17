@@ -54,7 +54,7 @@ public class MenuAdministradores extends JFrame {
 		JButton btnAdministrarSocios = new JButton("Administrar socios");
 		btnAdministrarSocios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdministrarSocios a = new AdministrarSocios();
+				AdministrarSocios a = new AdministrarSocios(admin);
 				a.setVisible(true);
 				MenuAdministradores.this.setVisible(false);
 			}
@@ -65,7 +65,7 @@ public class MenuAdministradores extends JFrame {
 		JButton btnVerCuentas = new JButton("Administrar cuentas");
 		btnVerCuentas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdministrarCuentas a = new AdministrarCuentas();
+				AdministrarCuentas a = new AdministrarCuentas(admin);
 				a.setVisible(true);
 				MenuAdministradores.this.setVisible(false);
 			}

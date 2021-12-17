@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import datos.Administrador;
 import datos.Socio;
 import gestorBD.GestorBD;
 
@@ -48,7 +49,7 @@ public class AnadirSocio extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AnadirSocio() {
+	public AnadirSocio(Administrador admin) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 720, 490);
 		contentPane = new JPanel();
@@ -66,7 +67,7 @@ public class AnadirSocio extends JFrame {
 			public void actionPerformed(ActionEvent e) {				
 				Socio s = new Socio(textFieldDNI.getText(), textFieldNombre.getText(), textFieldApellido.getText(), Integer.parseInt(textFieldTelefono.getText()), textFieldDireccion.getText(), Integer.parseInt(textFieldNumeroSocio.getText()), (String)comboBox.getSelectedItem(), 960);
 				GestorBD.insertSocio(s);
-				AdministrarSocios a = new AdministrarSocios();
+				AdministrarSocios a = new AdministrarSocios(admin);
 				a.setVisible(true);
 				AnadirSocio.this.setVisible(false);
 			}
@@ -155,7 +156,7 @@ public class AnadirSocio extends JFrame {
 		JButton btnNewButton_1 = new JButton("Volver");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdministrarSocios a = new AdministrarSocios();
+				AdministrarSocios a = new AdministrarSocios(admin);
 				a.setVisible(true);
 				AnadirSocio.this.setVisible(false);
 			}

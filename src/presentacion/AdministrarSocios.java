@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import datos.Administrador;
 import datos.Socio;
 import gestorBD.GestorBD;
 import java.awt.GridLayout;
@@ -46,7 +47,7 @@ public class AdministrarSocios extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AdministrarSocios() {
+	public AdministrarSocios(Administrador admin) {
 		arraySocios=GestorBD.selectAllSocio();
 		DefaultListModel<Socio> listaModeloSocios = new DefaultListModel<>();
 		for (Socio s: arraySocios) {
@@ -81,7 +82,7 @@ public class AdministrarSocios extends JFrame {
 					
 				} else {
 				Socio socio = listaModeloSocios.get(list.getSelectedIndex());
-				FichaSocio fichaSocio = new FichaSocio (socio);
+				FichaSocio fichaSocio = new FichaSocio (socio, admin);
 				fichaSocio.setVisible(true);
 				AdministrarSocios.this.setVisible(false);
 				}
@@ -110,7 +111,7 @@ public class AdministrarSocios extends JFrame {
 		JButton btnNewButton_2 = new JButton("Añadir socio");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AnadirSocio anadir = new AnadirSocio();
+				AnadirSocio anadir = new AnadirSocio(admin);
 				anadir.setVisible(true);
 				AdministrarSocios.this.setVisible(false);
 				
@@ -123,7 +124,7 @@ public class AdministrarSocios extends JFrame {
 		JButton btnNewButton_3 = new JButton("Volver");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MenuAdministradores a = new MenuAdministradores();
+				MenuAdministradores a = new MenuAdministradores(admin);
 				a.setVisible(true);
 				AdministrarSocios.this.setVisible(false);
 			}

@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import datos.Administrador;
 import datos.Producto;
 import datos.TipoProducto;
 import gestorBD.GestorBD;
@@ -45,7 +46,7 @@ public class Almacen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Almacen() {
+	public Almacen(Administrador admin) {
 		tipos=GestorBD.selectAllTipoProducto();
 		productos=GestorBD.selectAllProducto(tipos);
 		DefaultListModel<Producto> listaModeloProductos = new DefaultListModel<Producto>();
@@ -70,7 +71,7 @@ public class Almacen extends JFrame {
 		JButton btnNewButton = new JButton("Volver");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CuentasActuales cuentas = new CuentasActuales();
+				CuentasActuales cuentas = new CuentasActuales(admin);
 				cuentas.setVisible(true);
 				Almacen.this.setVisible(false);
 			}

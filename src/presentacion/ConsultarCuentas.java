@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import datos.Administrador;
+
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -34,7 +37,7 @@ public class ConsultarCuentas extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ConsultarCuentas() {
+	public ConsultarCuentas(Administrador admin) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 662, 419);
 		contentPane = new JPanel();
@@ -69,7 +72,7 @@ public class ConsultarCuentas extends JFrame {
 		JButton btnNewButton_4 = new JButton("Volver");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdministrarCuentas a = new AdministrarCuentas();
+				AdministrarCuentas a = new AdministrarCuentas(admin);
 				a.setVisible(true);
 				ConsultarCuentas.this.setVisible(false);
 			}

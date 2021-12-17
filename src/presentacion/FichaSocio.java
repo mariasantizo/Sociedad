@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import datos.Administrador;
 import datos.Socio;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -38,7 +39,7 @@ public class FichaSocio extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FichaSocio(Socio socio) {
+	public FichaSocio(Socio socio, Administrador admin) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 434);
 		contentPane = new JPanel();
@@ -77,7 +78,7 @@ public class FichaSocio extends JFrame {
 		JButton btnNewButton = new JButton("Volver");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdministrarSocios administrador = new AdministrarSocios();
+				AdministrarSocios administrador = new AdministrarSocios(admin);
 				administrador.setVisible(true);
 				FichaSocio.this.setVisible(false);
 			}

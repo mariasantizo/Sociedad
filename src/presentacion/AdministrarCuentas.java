@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import datos.Administrador;
+
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -34,7 +37,7 @@ public class AdministrarCuentas extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AdministrarCuentas() {
+	public AdministrarCuentas(Administrador admin) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 678, 393);
 		contentPane = new JPanel();
@@ -50,7 +53,7 @@ public class AdministrarCuentas extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ConsultarCuentas consultas = new ConsultarCuentas();
+				ConsultarCuentas consultas = new ConsultarCuentas(admin);
 				consultas.setVisible(true);
 				AdministrarCuentas.this.setVisible(false);
 			}
@@ -59,7 +62,7 @@ public class AdministrarCuentas extends JFrame {
 		JButton btnNewButton_1 = new JButton("Administrar cuentas actuales");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CuentasActuales cuentas = new CuentasActuales();
+				CuentasActuales cuentas = new CuentasActuales(admin);
 				cuentas.setVisible(true);
 				AdministrarCuentas.this.setVisible(false);
 			}
@@ -71,7 +74,7 @@ public class AdministrarCuentas extends JFrame {
 		JButton btnNewButton_2 = new JButton("Volver");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MenuAdministradores menu = new MenuAdministradores();
+				MenuAdministradores menu = new MenuAdministradores(admin);
 				menu.setVisible(true);
 				AdministrarCuentas.this.setVisible(false);
 			}
