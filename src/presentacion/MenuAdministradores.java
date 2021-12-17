@@ -14,6 +14,7 @@ import java.awt.SystemColor;
 import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class MenuAdministradores extends JFrame {
@@ -21,7 +22,7 @@ public class MenuAdministradores extends JFrame {
 	private JPanel contentPane;
 
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -32,12 +33,12 @@ public class MenuAdministradores extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public MenuAdministradores() {
+	public MenuAdministradores(Administrador admin) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 678, 393);
 		contentPane = new JPanel();
@@ -45,7 +46,7 @@ public class MenuAdministradores extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblHola = new JLabel("Hola "/*+administrador.getNombre()*/+", \u00BFqu\u00E9 desea hacer?");
+		JLabel lblHola = new JLabel("Hola "+admin.getNombre()+", \u00BFqu\u00E9 desea hacer?");
 		lblHola.setForeground(SystemColor.textHighlight);
 		lblHola.setFont(new Font("Tahoma", Font.BOLD, 24));
 		contentPane.add(lblHola);
