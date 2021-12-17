@@ -20,6 +20,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class HacerReserva extends JFrame {
 
@@ -73,5 +75,15 @@ public class HacerReserva extends JFrame {
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBounds(436, 340, 115, 29);
 		getContentPane().add(btnAceptar);
+		
+		JButton btnAceptar_1 = new JButton("Volver");
+		btnAceptar_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				HacerReserva.this.dispose();
+				ventanaAnterior.setVisible(true);
+			}
+		});
+		btnAceptar_1.setBounds(44, 340, 115, 29);
+		getContentPane().add(btnAceptar_1);
 	}
 }

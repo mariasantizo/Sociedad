@@ -7,14 +7,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import datos.Socio;
+
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class Pagar extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -30,13 +33,27 @@ public class Pagar extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Pagar() {
+	public Pagar(JFrame ventanaAnterior, Socio socio) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 596, 481);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Pagar.this.dispose();
+				ventanaAnterior.setVisible(true);
+			}
+		});
+		btnVolver.setBounds(55, 357, 115, 29);
+		contentPane.add(btnVolver);
+		
+		JButton btnPagar = new JButton("Pagar");
+		btnPagar.setBounds(415, 357, 115, 29);
+		contentPane.add(btnPagar);
 	}
 
 }

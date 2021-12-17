@@ -7,8 +7,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import datos.Administrador;
@@ -351,23 +355,23 @@ public class GestorBD {
     	String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
     	String sql = "SELECT CODIGO, DNISOCIO, CODIGOMESA, FECHA, HORARIO FROM RESERVA";
+ 
     	try (Connection conn = DriverManager.getConnection(url);
     			Statement stmt = conn.createStatement();
     			ResultSet rs = stmt.executeQuery(sql)){
     		while (rs.next()) {
+    			
     			//Calendar c = new GregorianCalendar();
     			//Calendar c = rs.getObject(1, Calendar.class);
     			//Calendar c1 = (Calendar) rs.getObject("FECHA");
     			//calendar y date no son compatibles, revisar esto!!!!
+    			//String fecha=null;
+    			//c.toString();
     			//Reserva r = new Reserva (rs.getInt("CODIGO"), rs.getString("DNISOCIO"), rs.getInt("CODIGOMESA"), rs.getString("FECHA"), rs.getString("HORARIO"));
-    			System.out.println(
-    			rs.getInt("CODIGO") + "\t"+
-    			rs.getString("DNISOCIO") + "\t"+
-    			rs.getInt("CODIGOMESA") + "\t"+
-    			rs.getDate("FECHA") + "\t"+
-    			rs.getString("HORARIO")
-    			);
+    			//reservas.add(r);
     		}
+  
+    
     	} catch (SQLException e) {
     		System.out.println(e.getMessage());
     	}

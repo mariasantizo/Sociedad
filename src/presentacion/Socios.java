@@ -81,7 +81,7 @@ public class Socios extends JFrame {
 		JButton btnPagar = new JButton("Pagar");
 		btnPagar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar pagar= new Pagar();
+				Pagar pagar= new Pagar(Socios.this, socio);
 				pagar.setVisible(true);
 				Socios.this.setVisible(false);
 			}

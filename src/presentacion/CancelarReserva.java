@@ -53,8 +53,9 @@ public class CancelarReserva extends JFrame {
 			}
 		}
 		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 517, 461);
+		setBounds(100, 100, 476, 526);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -88,8 +89,18 @@ public class CancelarReserva extends JFrame {
 		});
 				
 			
-		btnAceptar.setBounds(344, 335, 115, 29);
+		btnAceptar.setBounds(324, 425, 115, 29);
 		contentPane.add(btnAceptar);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CancelarReserva.this.dispose();
+				ventanaAnterior.setVisible(true);
+			}
+		});
+		btnVolver.setBounds(15, 425, 115, 29);
+		contentPane.add(btnVolver);
 		
 	}
 }
