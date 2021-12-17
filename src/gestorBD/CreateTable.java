@@ -70,13 +70,13 @@ public class CreateTable {
 				+ "CODIGO NUMBER PRIMARY KEY, \n"
 				+ "DNISOCIO TEXT REFERENCES SOCIO(DNI), \n"
 				+ "CODIGOMESA NUMBER REFERENCES MESA(CODIGOMESA), \n"
-				+ "FECHA DATE, \n"
+				+ "FECHA TEXT, \n"
 				+ "HORARIO TEXT \n"
 				+ ");";
 		
 		String sqlAlmacen = "CREATE TABLE IF NOT EXISTS ALMACEN (\n"
 				+ "CODIGO NUMBER PRIMARY KEY, \n"
-				+ "FECHA DATE, \n"
+				+ "FECHA TEXT, \n"
 				+ "VALOR NUMBER \n"
 				+ ");";
 		
@@ -87,7 +87,7 @@ public class CreateTable {
 		
 		String sqlCuentaResultados = "CREATE TABLE IF NOT EXISTS CUENTARESULTADOS (\n"
 				+ "CODIGO NUMBER PRIMARY KEY, \n"
-				+ "FECHA DATE, \n"
+				+ "FECHA TEXT, \n"
 				+ "INGRESOCUOTA NUMBER, \n"
 				+ "INGRESORESERVAS NUMBER, \n"
 				+ "GASTOCOMPRAS NUMBER, \n"
@@ -97,7 +97,7 @@ public class CreateTable {
 		
 		String sqlBalance = "CREATE TABLE IF NOT EXISTS BALANCE (\n"
 				+ "CODIGO NUMBER PRIMARY KEY, \n"
-				+ "FECHA DATE, \n"
+				+ "FECHA TEXT, \n"
 				+ "MOBILIARIO NUMBER, \n"
 				+ "EQUIPOS NUMBER, \n"
 				+ "CODIGOALMACEN NUMBER REFERENCES ALMACEN(CODIGO), \n"
@@ -105,7 +105,7 @@ public class CreateTable {
 				+ "CAJA NUMBER, \n"
 				+ "BANCOS NUMBER, \n"
 				+ "CAPITALSOCIAL NUMBER, \n"
-				+ "CCODIGOCUENTARESULTADOS NUMBER REFERENCES CUENTARESULTADOS(CODIGO), \n"
+				+ "CODIGOCUENTARESULTADOS NUMBER REFERENCES CUENTARESULTADOS(CODIGO), \n"
 				+ "CREDITO NUMBER, \n"
 				+ "PROVEEDORES NUMBER, \n"
 				+ "VALORBALANCE NUMBER \n"

@@ -15,9 +15,8 @@ public class ProgramaPrincipal {
 		//Reserva r1 = new Reserva (1, s1, m1, f1, "Comida");
 		//s1.calcularCuota();
 		//System.out.println(s1.getCuota());
-		
-		
-		
+		int year = f1.get(Calendar.YEAR);
+		String yearS = String.valueOf(year);
 		
 		
 		
