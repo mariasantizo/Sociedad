@@ -28,7 +28,7 @@ public class HacerReserva extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-/*	public static void main(String[] args) {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -39,12 +39,12 @@ public class HacerReserva extends JFrame {
 				}
 			}
 		});
-	}*/
+	}
 
 	/**
 	 * Create the frame.
 	 */
-	public HacerReserva(JFrame ventanaAnterior, Socio socio) {
+	public HacerReserva() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 630, 477);
 		getContentPane().setLayout(null);
@@ -80,7 +80,7 @@ public class HacerReserva extends JFrame {
 		btnAceptar_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HacerReserva.this.dispose();
-				ventanaAnterior.setVisible(true);
+				//ventanaAnterior.setVisible(true);
 			}
 		});
 		btnAceptar_1.setBounds(44, 340, 115, 29);
