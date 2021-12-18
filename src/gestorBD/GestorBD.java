@@ -692,9 +692,28 @@ public class GestorBD {
     	ArrayList<Reserva> reservas = new ArrayList<Reserva>();
     	reservas=selectAllReserva(socios, mesas);
     	for (int i=0; i<reservas.size(); i++) {
-    		System.out.println(reservas.get(i).getCodigo());
+    		//System.out.println(reservas.get(i).getCodigo());
 
     	}
+    	TipoProducto tp1= new TipoProducto ("Aceite", 1);
+    	//insertTipoProducto(tp1);
+    	Producto p1 = new Producto("Aceite de girasol", 1, 1, 1.5);
+    	Producto p2 = new Producto("Aceite de Oliva", 2, 1, 5);
+    	//insertProducto(p1, tp1);
+    	//insertProducto(p2, tp1);
+
+    	
+    	ArrayList <Producto> productos = new ArrayList<Producto>();
+    	productos.add(p1);
+    	productos.add(p2);
+    	Calendar fecha = new GregorianCalendar(2021,18,12);
+    	
+    	Almacen a= new Almacen(1,fecha, productos);
+    	//insertAlmacen(a);
+    	
+    	//insertProductoAlmacen(p1, a);
+    	//insertProductoAlmacen(p2, a);
+    	
     	
     }
 }

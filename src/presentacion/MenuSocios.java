@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 
-public class Socios extends JFrame {
+public class MenuSocios extends JFrame {
 
 	private JPanel contentPane;
 	
@@ -41,7 +41,7 @@ public class Socios extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Socios(JFrame ventanaAnterior, Socio socio) {
+	public MenuSocios(JFrame ventanaAnterior, Socio socio) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 524, 377);
 		contentPane = new JPanel();
@@ -59,9 +59,9 @@ public class Socios extends JFrame {
 		JButton btnReservar = new JButton("Hacer reserva\r\n");
 		btnReservar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				HacerReserva hacerReserva= new HacerReserva(Socios.this, socio);
+				HacerReserva hacerReserva= new HacerReserva(MenuSocios.this, socio);
 				hacerReserva.setVisible(true);
-				Socios.this.setVisible(false);
+				MenuSocios.this.setVisible(false);
 				}
 		});
 		btnReservar.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -71,9 +71,9 @@ public class Socios extends JFrame {
 		JButton btnCancelarReserva = new JButton("Cancelar reserva");
 		btnCancelarReserva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CancelarReserva cancelarReserva= new CancelarReserva(Socios.this, socio);
+				CancelarReserva cancelarReserva= new CancelarReserva(MenuSocios.this, socio);
 				cancelarReserva.setVisible(true);
-				Socios.this.setVisible(false);
+				MenuSocios.this.setVisible(false);
 			}
 		});
 		btnCancelarReserva.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -83,9 +83,9 @@ public class Socios extends JFrame {
 		JButton btnPagar = new JButton("Pagar");
 		btnPagar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagar pagar= new Pagar(Socios.this, socio);
+				Pagar pagar= new Pagar(MenuSocios.this, socio);
 				pagar.setVisible(true);
-				Socios.this.setVisible(false);
+				MenuSocios.this.setVisible(false);
 			}
 		});
 		btnPagar.setFont(new Font("Tahoma", Font.PLAIN, 20));

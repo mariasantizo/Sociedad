@@ -7,10 +7,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import datos.Mesa;
+import datos.Producto;
+import datos.Reserva;
 import datos.Socio;
+import datos.TipoProducto;
+import gestorBD.GestorBD;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -22,6 +30,12 @@ import javax.swing.JSpinner;
 public class Pagar extends JFrame {
 
 	private JPanel contentPane;
+	private ArrayList <Producto> productos;
+	private ArrayList <Almacen> almacen;
+	private ArrayList <TipoProducto> tiposProducto;
+	private GestorBD bd;
+	
+	
 
 	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -40,6 +54,17 @@ public class Pagar extends JFrame {
 	 * Create the frame.
 	 */
 	public Pagar(JFrame ventanaAnterior, Socio socio) {
+		
+		tiposProducto=GestorBD.selectAllTipoProducto();	
+		productos=GestorBD.selectAllProducto(tiposProducto);
+		
+		bd.selectAllProductoAlmacen();
+		bd.selectAllAlmacen(productos);
+
+		DefaultListModel<Producto> listaModelo = new DefaultListModel<>();
+		for (Producto p: productos) {
+			listaModelo.addElement(p);		
+				}
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 612, 537);
 		contentPane = new JPanel();
@@ -72,6 +97,7 @@ public class Pagar extends JFrame {
 		
 		JList list = new JList();
 		scrollPane.setViewportView(list);
+		list.setModel(listaModelo);
 		
 		JSpinner spinner = new JSpinner();
 		spinner.setBounds(324, 82, 32, 26);

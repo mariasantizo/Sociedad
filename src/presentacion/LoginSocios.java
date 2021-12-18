@@ -98,7 +98,7 @@ public class LoginSocios extends JFrame {
 				for (int i=0; i<arraySocios.size();i++){
 					if(textoUsuario.equals(arraySocios.get(i).getDni()) && passwordTexto.equals(((Socio) arraySocios.get(i)).getContrasena())){
 						socioEncontrado=true;	
-							Socios socios=new Socios (LoginSocios.this, arraySocios.get(i));
+							MenuSocios socios=new MenuSocios (LoginSocios.this, arraySocios.get(i));
 							socios.setVisible(true);
 							LoginSocios.this.setVisible(false);
 					}
