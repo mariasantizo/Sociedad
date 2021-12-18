@@ -76,9 +76,10 @@ public class MenuAdministradores extends JFrame {
 		JButton btnNewButton = new JButton("Cerrar Sesión");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Login l = new Login();
-				l.setVisible(true);
+				LoginAdmins a = new LoginAdmins();
+				a.setVisible(true);
 				MenuAdministradores.this.setVisible(false);
+				
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));

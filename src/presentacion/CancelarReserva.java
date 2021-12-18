@@ -71,6 +71,11 @@ public class CancelarReserva extends JFrame {
 		scrollPane.setBounds(172, 78, 238, 286);
 		contentPane.add(scrollPane);
 		
+		list = new JList();
+		list.setBounds(174, 78, 236, 284);
+		contentPane.add(list);
+		list.setModel(listaModeloReservas);
+		
 		JLabel lblElijaLaReserva = new JLabel("Elija la reserva que quiere cancelar:");
 		lblElijaLaReserva.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblElijaLaReserva.setBounds(104, 16, 425, 43);
@@ -104,11 +109,6 @@ public class CancelarReserva extends JFrame {
 		});
 		btnVolver.setBounds(55, 404, 124, 43);
 		contentPane.add(btnVolver);
-		
-		list = new JList();
-		list.setBounds(174, 78, 236, 284);
-		contentPane.add(list);
-		list.setModel(listaModeloReservas);
 		
 	}
 }

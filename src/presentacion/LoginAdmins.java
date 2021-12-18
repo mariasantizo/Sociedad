@@ -25,7 +25,7 @@ import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 
-public class Login extends JFrame {
+public class LoginAdmins extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldUsuario;
@@ -33,29 +33,25 @@ public class Login extends JFrame {
 	private ArrayList <Administrador> arrayAdmins;
 	private JPasswordField passwordFieldContrasena;
 	
-
-	/**
-	 * Launch the application.
-	 */
+/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Login frame = new Login();
+					LoginAdmins frame = new LoginAdmins();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public Login() {
+	public LoginAdmins() {
 		//error indexoutofbounds
-		arraySocios= GestorBD.selectAllSocio();
 		arrayAdmins=GestorBD.selectAllAdministrador();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 524, 377);
@@ -65,10 +61,10 @@ public class Login extends JFrame {
 		contentPane.setLayout(null);
 		this.setTitle("Inicio Sesión");
 		
-		JLabel labelBienvenida = new JLabel("BIENVENID@ A LA SOCIEDAD");
+		JLabel labelBienvenida = new JLabel("BIENVENID@ ADMINISTRADOR/A");
 		labelBienvenida.setForeground(Color.BLACK);
 		labelBienvenida.setFont(new Font("Tahoma", Font.BOLD, 20));
-		labelBienvenida.setBounds(109, 16, 315, 60);
+		labelBienvenida.setBounds(98, 16, 354, 60);
 		contentPane.add(labelBienvenida);
 		
 		JLabel lblUsuario = new JLabel("Usuario:");
@@ -99,23 +95,18 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String textoUsuario = textFieldUsuario.getText();
 				String passwordTexto= passwordFieldContrasena.getText();
-				boolean usuarioEncontrado=false;
-				for (int i=0; i<arraySocios.size();i++){
-					if(textoUsuario.equals(arraySocios.get(i).getDni()) && passwordTexto.equals(((Socio) arraySocios.get(i)).getContrasena())){
-						usuarioEncontrado=true;	
-							Socios socios=new Socios (Login.this, arraySocios.get(i));
-							socios.setVisible(true);
-							Login.this.setVisible(false);
-						}else if(textoUsuario.equals(arrayAdmins.get(i).getDni()) && passwordTexto.equals(((Administrador) arrayAdmins.get(i)).getContrasena())){
-								usuarioEncontrado=true;	
-								MenuAdministradores admins =new MenuAdministradores (arrayAdmins.get(i));
+				boolean adminEncontrado=false;			
+				for (int i1=0; i1<arrayAdmins.size();i1++){		
+					if(textoUsuario.equals(arrayAdmins.get(i1).getDni()) && passwordTexto.equals(((Administrador) arrayAdmins.get(i1)).getContrasena())){
+								adminEncontrado=true;	
+								MenuAdministradores admins =new MenuAdministradores (arrayAdmins.get(i1));
 								admins.setVisible(true);
-								Login.this.setVisible(false);
-							}
-						}
+								LoginAdmins.this.setVisible(false);
+					}
+				}
 						
-				if(usuarioEncontrado==false) {
-					JOptionPane.showMessageDialog(Login.this, "Usuario o contraseña incorrectas");
+				if(adminEncontrado==false) {
+					JOptionPane.showMessageDialog(LoginAdmins.this, "Usuario o contraseña incorrectas");
 				}
 			}
 		});

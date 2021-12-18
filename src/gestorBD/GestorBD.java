@@ -658,11 +658,11 @@ public class GestorBD {
     }
     
     public static void main(String[] args) {
-		/*ArrayList<Socio> socios = new ArrayList<Socio>();
+		ArrayList<Socio> socios = new ArrayList<Socio>();
     	socios=selectAllSocio();
     	for (int i=0; i<socios.size(); i++) {
     		System.out.println(socios.get(i).getNombre());
-    	}*/
+    	}
     	//createNewDatabase("BaseDeDatos.db");
     	//createTable();
     	/*Socio s1=new Socio("72451234A","Ana", "Sanchez", 687333222, "Avenida 8", "1234", 1, "Anual", 960);
@@ -673,5 +673,31 @@ public class GestorBD {
     	//insertAdministrador("43676767E", "Mikel", "Etxeberria", 677676767, "Balea kalea", "0000");
     	//insertMesa(1, 10);
     	//insertReserva(1, 1, 1, "12/12/2021", "Comida");
+    	
+    	/*Socio s1=new Socio("72451234A","Ana", "Sanchez", 687333222, "Avenida 8", "1234", 1, "Anual", 960);
+    	Mesa m1=new Mesa(1,10);
+    	Calendar c1=new GregorianCalendar(2021,12,18);
+    	
+    	String fecha = "22-12-2021";
+		String [] array = fecha.split("-");
+		Calendar c = new GregorianCalendar(Integer.parseInt(array[2]), Integer.parseInt(array[1]), Integer.parseInt(array[0]));
+		System.out.println(c.getTime());
+		
+    	Reserva r= new Reserva(8,s1,m1,c, "Cena");
+    	insertReserva(r);
+    	System.out.println(r);
+    	
+    	ArrayList<Mesa> mesas = new ArrayList<Mesa>();
+    	mesas=selectAllMesa();
+    	for (int i=0; i<mesas.size(); i++) {
+    		System.out.println(mesas.get(i).getCodigoMesa());
+    	}
+    	
+    	ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+    	reservas=selectAllReserva(socios, mesas);
+    	for (int i=0; i<reservas.size(); i++) {
+    		System.out.println(reservas.get(i).getFecha()+ "reservas.get(i).getCodigo()"+"reservas.get(i).getHorario()");
+    	}
+    	*/
     }
 }
