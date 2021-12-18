@@ -35,7 +35,7 @@ public class MergeSort <t extends Comparable<t>> implements Ordenable <t> {
 	public ArrayList<t> ordenar(ArrayList<t> array, int low, int high) {
 		// TODO Auto-generated method stub
 		ArrayList<t> arrayResultado = new ArrayList<t>();
-		if (array.size()==1 || array.size()==0) {
+		if (high-low==1 || high-low==0) {
 		} else {
 			ordenar(array, low, high/2);
 			ordenar(array, (high/2)+1, high);

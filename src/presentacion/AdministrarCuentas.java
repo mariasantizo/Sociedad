@@ -49,28 +49,6 @@ public class AdministrarCuentas extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Consultar cuentas");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ConsultarCuentas consultas = new ConsultarCuentas(admin);
-				consultas.setVisible(true);
-				AdministrarCuentas.this.setVisible(false);
-			}
-		});
-		
-		JButton btnNewButton_1 = new JButton("Administrar cuentas actuales");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				CuentasActuales cuentas = new CuentasActuales(admin);
-				cuentas.setVisible(true);
-				AdministrarCuentas.this.setVisible(false);
-			}
-		});
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		contentPane.add(btnNewButton_1);
-		contentPane.add(btnNewButton);
-		
 		JButton btnNewButton_2 = new JButton("Volver");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -79,6 +57,33 @@ public class AdministrarCuentas extends JFrame {
 				AdministrarCuentas.this.setVisible(false);
 			}
 		});
+		
+		JButton btnNewButton_4 = new JButton("Evolución");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		contentPane.add(btnNewButton_4);
+		
+		JButton btnNewButton = new JButton("Almacén");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Almacen a = new Almacen(admin);
+				a.setVisible(true);
+				AdministrarCuentas.this.setVisible(false);
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Balance");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_3 = new JButton("Cuenta de resultados");
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		contentPane.add(btnNewButton_3);
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(btnNewButton_2);
 	}
