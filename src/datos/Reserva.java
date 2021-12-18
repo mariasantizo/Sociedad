@@ -9,6 +9,7 @@ package datos;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Reserva implements Comparable <Reserva> {
 	private int codigo;
@@ -97,22 +98,35 @@ public class Reserva implements Comparable <Reserva> {
 	}
 
 	@Override
-	public int comparar(Reserva objeto1, Reserva objeto2) {
+	public int comparar(Reserva objeto2) {
 		// TODO Auto-generated method stub
 		int resultado=0;
-		if (objeto1.getFecha().after(objeto2.getFecha())) {
+		if (this.fecha.after(objeto2.getFecha())) {
 			resultado=1;
 		} 
-		else if (objeto1.getFecha().before(objeto2.getFecha())) {
+		else if (this.fecha.before(objeto2.getFecha())) {
 			resultado=-1;
 		}
 		return resultado;
 	}
 	
 	@Override
+	public String obtenerValorComparable() {
+		return this.getFecha().toString();
+	}
+	
+	@Override
 	public String toString() {
 		return "Reserva Nº: "+codigo+" - "+"fecha"+" - "+"horario"+" en la mesa: "+"mesa.getCodigoMesa()"+" - ";
 		
+	}
+
+	@Override
+	public void establecerValorComparable(String valor) {
+		// TODO Auto-generated method stub
+		String[] array = valor.split("/");
+		Calendar c = new GregorianCalendar(Integer.parseInt(array[0]), Integer.parseInt(array[1]), Integer.parseInt(array[2]));
+		this.fecha=c;
 	}
 	
 }

@@ -1,6 +1,8 @@
 package datos;
 
-public interface Ordenable {
-	public int[] ordenar (int[] array, int low, int high);
+import java.util.ArrayList;
+
+public interface Ordenable <t> {
+	public ArrayList<t> ordenar (ArrayList<t> array, int low, int high);
 
 }
