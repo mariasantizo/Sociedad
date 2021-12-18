@@ -84,13 +84,13 @@ public class Producto implements Comparable <Producto>, Buscable <Producto>{
 	 */
 	
 	@Override
-	public int comparar(Producto objeto1, Producto objeto2) {
+	public int comparar(Producto objeto2) {
 		// TODO Auto-generated method stub
 		int resultado = 0;
-		if (objeto1.getPrecio()>objeto2.getPrecio()) {
+		if (this.precio>objeto2.getPrecio()) {
 			resultado=1;
 		}
-		else if (objeto1.getPrecio()==objeto2.getPrecio()) {
+		else if (this.precio==objeto2.getPrecio()) {
 			resultado=0;
 		} else {
 			resultado=-1;
@@ -123,8 +123,22 @@ public class Producto implements Comparable <Producto>, Buscable <Producto>{
 	}
 	
 	@Override
+	public String obtenerValorComparable() {
+		// TODO Auto-generated method stub
+		return ""+this.precio;
+	}
+	
+	@Override
 	public String toString() {
 		return nombre+" - "+precio+"€";
 		
 	}
+
+	@Override
+	public void establecerValorComparable(String valor) {
+		// TODO Auto-generated method stub
+		this.precio=Double.parseDouble(valor);
+	}
+
+
 }
