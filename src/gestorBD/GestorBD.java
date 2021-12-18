@@ -184,7 +184,7 @@ public class GestorBD {
 	 * Inserta productos en la base de datos
 	 * @author malensanz
 	 */
-	public static void insertProducto(Producto p, TipoProducto t) {
+	public static void insertProducto(Producto p) {
 		String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
 		
@@ -195,7 +195,7 @@ public class GestorBD {
 			
 			pstmt.setString(1, p.getNombre());
 			pstmt.setInt(2, p.getCodigo());
-			pstmt.setInt(3, t.getCodigo());
+			pstmt.setInt(3, p.getTipo().getCodigo());
 			pstmt.setDouble(4, p.getPrecio());
 			pstmt.executeUpdate();
 
@@ -659,7 +659,7 @@ public class GestorBD {
     }
     
     public static void main(String[] args) {
-		ArrayList<Socio> socios = new ArrayList<Socio>();
+		/*ArrayList<Socio> socios = new ArrayList<Socio>();
     	socios=selectAllSocio();
     	for (int i=0; i<socios.size(); i++) {
     		//System.out.println(socios.get(i).getNombre());
@@ -671,7 +671,7 @@ public class GestorBD {
     	insertSocio(s1);
     	insertSocio(s2);*/
     	/*Administrador a1= new Administrador ("43676767E", "Mikel", "Etxeberria", 677676767, "Balea kalea", "0000");
-    	insertAdministrador(a1);*/
+    	insertAdministrador(a1);
     	Mesa m1= new Mesa(1, 10);
     	//insertMesa(m1)
     	
@@ -695,6 +695,17 @@ public class GestorBD {
     		System.out.println(reservas.get(i).getCodigo());
 
     	}
+    	
+    	createNewDatabase("BaseDeDatos.db");*/
+    	TipoProducto t1 = new TipoProducto("Aliño", 1);
+    	TipoProducto t2 = new TipoProducto("Vinos", 2);
+    	TipoProducto t3 = new TipoProducto("Refrescos", 3);
+    	Producto p1 = new Producto("Aceite", 1, t1, 1.8);
+    	Producto p2 = new Producto("Vinagre", 2, t1, 2.1);
+    	Producto p3 = new Producto("Coca Cola", 3, t3, 1.0);
+    	
+    	
+    	
     	
     }
 }

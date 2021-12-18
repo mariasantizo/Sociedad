@@ -45,7 +45,7 @@ public class CreateTable {
 				+ "NOMBRE TEXT NOT NULL \n"
 				+ ");";
 		
-		String sqlProducto = "CREATE TABLE IF NOT EXISTS PRODUCT (\n"
+		String sqlProducto = "CREATE TABLE IF NOT EXISTS PRODUCTO (\n"
 				+ "NOMBRE TEXT, \n"
 				+ "CODIGO NUMBER PRIMARY KEY, \n"
 				+ "PRECIO NUMBER, \n"

@@ -8,7 +8,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import datos.Administrador;
+import datos.MergeSort;
+import datos.Ordenable;
 import datos.Producto;
+import datos.QuickSort;
 import datos.TipoProducto;
 import gestorBD.GestorBD;
 
@@ -71,7 +74,7 @@ public class Almacen extends JFrame {
 		JButton btnNewButton = new JButton("Volver");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CuentasActuales cuentas = new CuentasActuales(admin);
+				AdministrarCuentas cuentas = new AdministrarCuentas(admin);
 				cuentas.setVisible(true);
 				Almacen.this.setVisible(false);
 			}
@@ -86,7 +89,7 @@ public class Almacen extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(394, 221, 213, 37);
+		btnNewButton_1.setBounds(394, 140, 213, 37);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("Almacén");
@@ -97,7 +100,7 @@ public class Almacen extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Valor del almacén:");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(394, 65, 213, 62);
+		lblNewLabel_1.setBounds(394, 65, 213, 37);
 		contentPane.add(lblNewLabel_1);
 		
 		double importe=0;
@@ -107,7 +110,24 @@ public class Almacen extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel(importe+"€");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_2.setBounds(394, 117, 213, 31);
+		lblNewLabel_2.setBounds(394, 98, 213, 31);
 		contentPane.add(lblNewLabel_2);
+		
+		JButton btnNewButton_2 = new JButton("Ordenar Con MergeSort");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Ordenable<Producto> current = new QuickSort<Producto>();
+				current.ordenar(productos, 0, productos.size());
+				DefaultListModel<Producto> listaModeloProductos = new DefaultListModel<Producto>();
+				listaModeloProductos=null;
+				for (Producto p: productos) {
+					listaModeloProductos.addElement(p);
+					list.setModel(listaModeloProductos);
+				}
+			}
+		});
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_2.setBounds(394, 202, 213, 31);
+		contentPane.add(btnNewButton_2);
 	}
 }
