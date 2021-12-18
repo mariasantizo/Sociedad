@@ -49,6 +49,7 @@ public class HacerReserva extends JFrame {
 		this.setTitle("Login > Socios > Hacer Reserva");
 		
 		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setDateFormatString("yyyy/MM/dd");
 		dateChooser.setForeground(new Color(0, 0, 0));
 		dateChooser.getCalendarButton().setFont(new Font("Tahoma", Font.PLAIN, 25));
 		dateChooser.setBounds(171, 161, 245, 41);
@@ -76,6 +77,13 @@ public class HacerReserva extends JFrame {
 		getContentPane().add(lblElijaLaHora);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ElegirMesa elegirMesa = new ElegirMesa (HacerReserva.this, socio, dateChooser, comboBox);
+				elegirMesa.setVisible(true);
+				HacerReserva.this.setVisible(false);
+			}
+		});
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		btnAceptar.setBounds(441, 396, 126, 41);
 		getContentPane().add(btnAceptar);

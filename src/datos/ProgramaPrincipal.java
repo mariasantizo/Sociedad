@@ -17,6 +17,7 @@ public class ProgramaPrincipal {
 		//System.out.println(s1.getCuota());
 		int year = f1.get(Calendar.YEAR);
 		String yearS = String.valueOf(year);
+		System.out.println(yearS);
 		
 		
 		

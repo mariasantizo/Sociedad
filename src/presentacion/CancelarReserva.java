@@ -17,6 +17,7 @@ import java.awt.Font;
 import java.util.ArrayList;
 
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -72,8 +73,7 @@ public class CancelarReserva extends JFrame {
 		contentPane.add(scrollPane);
 		
 		list = new JList();
-		list.setBounds(174, 78, 236, 284);
-		contentPane.add(list);
+		scrollPane.setViewportView(list);
 		list.setModel(listaModeloReservas);
 		
 		JLabel lblElijaLaReserva = new JLabel("Elija la reserva que quiere cancelar:");
@@ -91,6 +91,7 @@ public class CancelarReserva extends JFrame {
 					int codigo = listaModeloReservas.get(list.getSelectedIndex()).getCodigo();
 					GestorBD.deleteReserva(codigo);
 					listaModeloReservas.remove(list.getSelectedIndex());
+					JOptionPane.showMessageDialog(CancelarReserva.this, "La reserva se ha cancelado");
 				}
 			}
 		});
