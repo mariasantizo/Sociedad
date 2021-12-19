@@ -49,7 +49,6 @@ public class CancelarReserva extends JFrame {
 	 * Create the frame.
 	 */
 	public CancelarReserva(JFrame ventanaAnterior, Socio socio) {
-		//error indexoutofbounds
 		arraySocios=GestorBD.selectAllSocio();
 		arrayMesas=GestorBD.selectAllMesa();
 		arrayReservas=GestorBD.selectAllReserva(arraySocios, arrayMesas);
@@ -59,6 +58,8 @@ public class CancelarReserva extends JFrame {
 				listaModeloReservas.addElement(r);	
 			}
 		}
+		//expresión lambda
+		//arrayReservas.stream().filter(e->e.getSocio().getNumeroSocio()==socio.getNumeroSocio()).forEach(e->listaModeloReservas.addElement(e));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 612, 537);

@@ -65,6 +65,9 @@ public class Pagar extends JFrame {
 		for (Producto p: productos) {
 			listaModelo.addElement(p);		
 				}
+		//expresión lamda
+		//productos.forEach(e -> listaModelo.addElement(e));
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 612, 537);
 		contentPane = new JPanel();

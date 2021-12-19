@@ -65,7 +65,7 @@ public class MenuSocios extends JFrame {
 				}
 		});
 		btnReservar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnReservar.setBounds(15, 68, 472, 79);
+		btnReservar.setBounds(15, 75, 472, 55);
 		contentPane.add(btnReservar);
 		
 		JButton btnCancelarReserva = new JButton("Cancelar reserva");
@@ -77,7 +77,7 @@ public class MenuSocios extends JFrame {
 			}
 		});
 		btnCancelarReserva.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelarReserva.setBounds(15, 147, 472, 79);
+		btnCancelarReserva.setBounds(15, 136, 472, 55);
 		contentPane.add(btnCancelarReserva);
 		
 		JButton btnPagar = new JButton("Pagar");
@@ -89,7 +89,7 @@ public class MenuSocios extends JFrame {
 			}
 		});
 		btnPagar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnPagar.setBounds(15, 226, 472, 79);
+		btnPagar.setBounds(15, 197, 472, 55);
 		contentPane.add(btnPagar);
 		
 		String str= socio.getNombre();
@@ -98,6 +98,17 @@ public class MenuSocios extends JFrame {
 		labelNombre.setForeground(Color.BLACK);
 		labelNombre.setBounds(256, 20, 212, 40);
 		contentPane.add(labelNombre);
+		
+		JButton btnCerrarSesin = new JButton("Cerrar sesi\u00F3n");
+		btnCerrarSesin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuSocios.this.dispose();
+				ventanaAnterior.setVisible(true);
+			}
+		});
+		btnCerrarSesin.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCerrarSesin.setBounds(15, 256, 472, 49);
+		contentPane.add(btnCerrarSesin);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon("C:\\Users\\Alumno\\Documents\\Workspace\\Proyecto\\fondo.jpg"));

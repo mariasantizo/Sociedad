@@ -77,7 +77,12 @@ public class Producto implements Comparable <Producto>, Buscable <Producto>{
 			}
 		}
 	}
-
+	
+	//expresion lambda
+	/*public void convertirTipoLambda (ArrayList<TipoProducto> tipos) {
+		tipos.stream().filter(e->e.getCodigo()==this.tipoAux).forEach(e-> this.tipo=e);
+	}
+*/
 	/**
 	 * Es el método que proviene de la interfaz Comparable, compara dos productos segun sus precios
 	 * @author mariasantizo
