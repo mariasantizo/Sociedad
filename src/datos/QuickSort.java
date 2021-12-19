@@ -1,25 +1,22 @@
 package datos;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class QuickSort <t extends Comparable<t>> implements Ordenable <t>{
 
 	public int pivot(ArrayList<t> array, int low, int high) {
-		t pivot = array.get(low);
-		int leftwall = low;
+		t pivot = array.get(high);
+		int leftwall = low-1;
 		
-		for (int i=low+1; i==high; i++) {
-			if (pivot.comparar(array.get(i))==1) {
-				t aux=array.get(leftwall);
-				array.set(leftwall, array.get(i));
-				array.set(i, aux);
+		for (int i=low; i<=high-1; i++) {
+			if (pivot.comparar(array.get(i))>=0) {
 				leftwall += 1;
+				Collections.swap(array, leftwall, i);
 			}
-		t aux=pivot;
-		pivot=array.get(leftwall);
-		array.set(leftwall, aux);
+		Collections.swap(array, leftwall+1, high);
 		}
-		return leftwall;
+		return leftwall+1;
 	}
 
 	@Override
@@ -32,7 +29,7 @@ public class QuickSort <t extends Comparable<t>> implements Ordenable <t>{
 				//1. Llamar a pivot
 				p=pivot(array, low, high);
 				//2. Llamar a QuickSort con la parte izquierda del array
-				ordenar(array, low, p);
+				ordenar(array, low, p-1);
 				//3. Llamar a QuickSort con la parte derecha del array
 				ordenar(array, p+1, high);
 			}

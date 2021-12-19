@@ -21,6 +21,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
@@ -56,9 +57,6 @@ public class Almacen extends JFrame {
 		for (Producto p: productos) {
 			listaModeloProductos.addElement(p);
 		}
-		Producto prod = new Producto("Bolsa de limones", 1, null, 2.5);
-		listaModeloProductos.addElement(prod);
-		productos.add(prod);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 678, 393);
 		contentPane = new JPanel();
@@ -80,7 +78,7 @@ public class Almacen extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.setBounds(394, 284, 213, 37);
+		btnNewButton.setBounds(362, 284, 265, 37);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Añadir producto");
@@ -89,7 +87,7 @@ public class Almacen extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(394, 140, 213, 37);
+		btnNewButton_1.setBounds(362, 140, 265, 37);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("Almacén");
@@ -116,18 +114,36 @@ public class Almacen extends JFrame {
 		JButton btnNewButton_2 = new JButton("Ordenar Con MergeSort");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Ordenable<Producto> current = new QuickSort<Producto>();
-				current.ordenar(productos, 0, productos.size());
-				DefaultListModel<Producto> listaModeloProductos = new DefaultListModel<Producto>();
-				listaModeloProductos=null;
-				for (Producto p: productos) {
-					listaModeloProductos.addElement(p);
-					list.setModel(listaModeloProductos);
+				Ordenable<Producto> current = new MergeSort<Producto>();
+				ArrayList<Producto> resultado = new ArrayList<Producto>();
+				resultado=current.ordenar(productos, 0, productos.size());
+				DefaultListModel<Producto> listaModelo = new DefaultListModel<Producto>();
+				for (Producto p: resultado) {
+					listaModelo.addElement(p);
+					list.setModel(listaModelo);
 				}
 			}
 		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_2.setBounds(394, 202, 213, 31);
+		btnNewButton_2.setBounds(362, 188, 265, 37);
 		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Ordenar Con QuickSort");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Ordenable<Producto> current = new QuickSort<Producto>();
+				ArrayList<Producto> resultado = new ArrayList<Producto>();
+				resultado=current.ordenar(productos, 0, productos.size()-1);
+				Collections.swap(resultado, resultado.size()-1, resultado.size()-2);
+				DefaultListModel<Producto> listaModelo = new DefaultListModel<Producto>();
+				for (Producto p: resultado) {
+					listaModelo.addElement(p);
+					list.setModel(listaModelo);
+				}
+			}
+		});
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_3.setBounds(362, 236, 265, 37);
+		contentPane.add(btnNewButton_3);
 	}
 }

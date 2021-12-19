@@ -722,6 +722,10 @@ public class GestorBD {
     	Producto p1 = new Producto("Aceite", 1, t1, 1.8);
     	Producto p2 = new Producto("Vinagre", 2, t1, 2.1);
     	Producto p3 = new Producto("Coca Cola", 3, t3, 1.0);
+    	Producto p4 = new Producto("Caja de Fanta", 4, t3, 5.0);
+    	Producto p5 = new Producto("Caja de Sprite", 5, t3, 7.0);
+    	insertProducto(p4);
+    	insertProducto(p5);
     	
     	
     	

@@ -5,43 +5,59 @@ import java.util.LinkedList;
 
 public class MergeSort <t extends Comparable<t>> implements Ordenable <t> {
 
-	public ArrayList<t> merge(ArrayList<t> array, int low1, int high1, int low2, int high2)	{
+	public ArrayList<t> merge(ArrayList<t> arrayIzquierda, ArrayList<t> arrayDerecha)	{
 		ArrayList<t> arrayResultado = new ArrayList<t>();
-		while (low1<=high1 && low2<=high2) {
-			if (array.get(low1).comparar(array.get(low2))==1){
-				arrayResultado.add(array.get(low2));
-				low2 += 1;
+		while (arrayIzquierda.size()>0 && arrayDerecha.size()>0) {
+			//Comparar la primera posición
+			if (arrayIzquierda.get(0).comparar(arrayDerecha.get(0))==1){
+				//Si valor de arrayDerecha es menor, pasa el elemento de arrayDerecha 
+				arrayResultado.add(arrayDerecha.get(0));
+				//Eliminamos ese elemento del array original para compararlo con el siguiente
+				arrayDerecha.remove(0);
 			} else {
-				arrayResultado.add(array.get(low1));
-				low1 += 1;
+				//Si valor de arrayIzquierda es menor o si son iguales, pasa el elemento de arrayIzquierda
+				arrayResultado.add(arrayIzquierda.get(0));
+				//Eliminamos ese elemento del array original para compararlo con el siguiente
+				arrayIzquierda.remove(0);
 			}
 		}
-		while (low1<=high1) {
-			arrayResultado.add(array.get(low1));
-			low1 += 1;
+		//Añadir los elementos restantes que no se han comparado
+		while (arrayIzquierda.size()>0) {
+			arrayResultado.add(arrayIzquierda.get(0));
+			arrayIzquierda.remove(0);
 		}
-		while (low2<=high2) {
-			arrayResultado.add(array.get(low2));
-			low2 += 1;
+		while (arrayDerecha.size()>0) {
+			arrayResultado.add(arrayDerecha.get(0));
+			arrayDerecha.remove(0);
 		}
 		return arrayResultado;	
 	}
 
 	
-	//trivial: array.lenght==0 or ==1
+	//trivial: array.lenght==1
 	//no trivial: partir, m izq, m der, mezclar
 	
 	@Override
 	public ArrayList<t> ordenar(ArrayList<t> array, int low, int high) {
 		// TODO Auto-generated method stub
-		ArrayList<t> arrayResultado = new ArrayList<t>();
-		if (high-low==1 || high-low==0) {
+		ArrayList<t> arrayIzquierda = new ArrayList<t>();
+		ArrayList<t> arrayDerecha = new ArrayList<t>();
+		if (array.size()==1) {
 		} else {
-			ordenar(array, low, high/2);
-			ordenar(array, (high/2)+1, high);
-			arrayResultado=merge(array, low, high/2, (high/2)+1, high);
+			int index =0;
+			for (t elemento: array) {
+				if(index<array.size()/2) {
+					arrayIzquierda.add(elemento);
+				} else {
+					arrayDerecha.add(elemento);
+				}
+				index += 1;
+			}
+			arrayIzquierda=ordenar(arrayIzquierda, low, high/2);
+			arrayDerecha=ordenar(arrayDerecha, (high/2)+1, high);
+			array=merge(arrayIzquierda, arrayDerecha);
 		}
-		return arrayResultado;
+		return array;
 	}
 	
 }
