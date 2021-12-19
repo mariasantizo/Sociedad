@@ -84,6 +84,9 @@ public class Almacen extends JFrame {
 		JButton btnNewButton_1 = new JButton("Añadir producto");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				AnadirProducto a = new AnadirProducto(admin);
+				a.setVisible(true);
+				Almacen.this.setVisible(false);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
