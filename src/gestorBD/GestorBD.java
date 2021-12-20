@@ -737,6 +737,8 @@ public class GestorBD {
     	Producto p5 = new Producto("Caja de Sprite", 5, t3, 7.0);
     	insertProducto(p4);
     	insertProducto(p5);
+    	Socio s1=new Socio("72451234A","Ana", "Sanchez", 687333222, "Avenida 8", "1234", 33, "Anual", 960);
+    	insertSocio(s1);
     	
     	
     	
