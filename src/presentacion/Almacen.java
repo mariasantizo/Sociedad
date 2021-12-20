@@ -54,9 +54,11 @@ public class Almacen extends JFrame {
 		tipos=GestorBD.selectAllTipoProducto();
 		productos=GestorBD.selectAllProducto(tipos);
 		DefaultListModel<Producto> listaModeloProductos = new DefaultListModel<Producto>();
-		for (Producto p: productos) {
+		/*for (Producto p: productos) {
 			listaModeloProductos.addElement(p);
-		}
+		}*/
+		
+		productos.stream().forEach(p -> listaModeloProductos.addElement(p));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 678, 393);
 		contentPane = new JPanel();
