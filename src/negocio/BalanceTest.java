@@ -1,4 +1,10 @@
 package negocio;
+/**
+ * Test para la clase "Balance"
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
 
 import static org.junit.Assert.*;
 

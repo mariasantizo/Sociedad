@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Desciende de la clase Persona, representa cada socio de la sociedad
- * @author mariasantizo
+ * @author mariasantizo y malensanz
  * @version 2
  * @since 1
  */

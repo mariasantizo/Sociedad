@@ -1,6 +1,6 @@
 /**
  * Representa cada persona (es una clase abstracta)
- * @author mariasantizo
+ * @author mariasantizo y malensanz
  * @version 1
  * @since 1
  */

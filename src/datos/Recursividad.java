@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Este método ordena un array utilizando el método de la burbuja
- * @author mariasantizo
+ * @author mariasantizo y malensanz
  * @param Un array de enteros
  * @return El array ordenado
  */

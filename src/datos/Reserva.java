@@ -1,6 +1,6 @@
 /**
  * Representa cada reserva de la sociedad (recogerá el socio, la mesa y la fecha de la reserva)
- * @author mariasantizo
+ * @author mariasantizo y malensanz
  * @version 1
  * @since 1
  */

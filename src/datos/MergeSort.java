@@ -1,6 +1,13 @@
 package datos;
 
 import java.util.ArrayList;
+
+/**
+ * MergeSort genérico
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
 import java.util.LinkedList;
 
 public class MergeSort <t extends Comparable<t>> implements Ordenable <t> {

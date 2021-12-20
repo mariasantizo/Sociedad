@@ -1,6 +1,6 @@
 /**
  * Representa los tipos de productos que tendremos en el almacén
- * @author malensanz
+ * @author mariasantizo y malensanz
  * @version 1
  * @since 1
  */

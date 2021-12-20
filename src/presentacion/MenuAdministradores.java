@@ -1,3 +1,10 @@
+/**
+ * Ventana del menu de administradores
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
+
 package presentacion;
 
 import java.awt.EventQueue;

@@ -1,7 +1,7 @@
 /**
  * Representa el balance de la sociedad, lo usaremos para llevar la contabilidad
- * @author malensanz
- * @version 2
+ * @author mariasantizo y malensanz
+ * @version 1
  * @since 1
  */
 

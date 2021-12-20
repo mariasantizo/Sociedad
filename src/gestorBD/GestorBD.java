@@ -1,5 +1,12 @@
 package gestorBD;
 
+/**
+ * Este es nuestro GestorBD, incluye la creación de la BD, createTable, inserts, select y deletes
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -518,7 +525,8 @@ public class GestorBD {
     	return gestor;
     }
     
-    public void selectAllAlmacen(ArrayList<Producto> productos) {
+    public ArrayList <Almacen> selectAllAlmacen(ArrayList<Producto> productos) {
+    	ArrayList<Almacen> almacenes=new ArrayList <Almacen>();
     	ArrayList<GestorBD> tuplas =selectAllProductoAlmacen();
     	String name = "BaseDeDatos.db";
 		String url = "jdbc:sqlite:"+name;
@@ -541,11 +549,14 @@ public class GestorBD {
 					}
     				
     			}
-    			Almacen a = new Almacen(rs.getInt("CODIGO"), c, productosEsteAlmacen,rs.getInt("VALOR"));	
+    			Almacen a = new Almacen(rs.getInt("CODIGO"), c, productosEsteAlmacen,rs.getInt("VALOR"));
+    			almacenes.add(a);
+    			
     		}
     	} catch (SQLException e) {
     		System.out.println(e.getMessage());
     	}
+		return almacenes;
     }
     
     public void selectAllCuentaResultados() {

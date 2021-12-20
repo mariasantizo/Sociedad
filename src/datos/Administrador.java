@@ -1,7 +1,6 @@
 /**
  * Desciende de la clase Persona, representa cada administrador de la sociedad
- * Representa cada persona (es una clase abstracta)
- * @author mariasantizo
+ * @author mariasantizo y malensanz
  * @version 1
  * @since 1
  */

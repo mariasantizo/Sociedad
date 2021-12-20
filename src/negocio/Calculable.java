@@ -1,3 +1,10 @@
+/**
+ * Interfaz calculable
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
+
 package negocio;
 
 import java.util.ArrayList;

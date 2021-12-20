@@ -1,5 +1,12 @@
 package datos;
 
+/**
+ * Test para la clase reserva, testeamos los métodos
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
+
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;

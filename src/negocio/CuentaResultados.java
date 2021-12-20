@@ -1,7 +1,7 @@
 /**
  * Representa todos los gastos e ingresos de la sociedad
- * @author malensanz
- * @version 2
+ * @author mariasantizo y malensanz
+ * @version 1
  * @since 1
  */
 

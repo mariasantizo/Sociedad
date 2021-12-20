@@ -1,3 +1,8 @@
+/**
+ * PRIMERA PANTALLA
+ */
+
+
 package presentacion;
 
 import java.awt.BorderLayout;
@@ -20,6 +25,8 @@ public class PantallaInicial extends JFrame {
 
 	/**
 	 * Launch the application.
+	 * Es la primera pantalla del proyecto
+	 * @author mariasantizo y malensanz
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

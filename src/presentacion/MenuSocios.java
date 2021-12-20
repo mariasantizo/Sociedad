@@ -1,5 +1,12 @@
 package presentacion;
 
+/**
+ * Pantalla para el menu de socios
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -22,21 +29,6 @@ import java.awt.Color;
 public class MenuSocios extends JFrame {
 
 	private JPanel contentPane;
-	
-	
-	
-/*	public static void main(String[] args) {
-	EventQueue.invokeLater(new Runnable() {
-		public void run() {
-			try {
-				Socios frame = new Socios();
-				frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	});
-}*/
 
 	/**
 	 * Create the frame.

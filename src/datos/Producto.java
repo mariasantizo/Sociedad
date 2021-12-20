@@ -1,6 +1,6 @@
 /**
  * Son los diferentes productos que encontraremos en nuestra sociedad
- * @author malensanz
+ * @author mariansantizo y malensanz
  * @version 1
  * @since 1
  */
@@ -135,8 +135,8 @@ public class Producto implements Comparable <Producto>, Buscable <Producto>{
 	
 	@Override
 	public String toString() {
-		return nombre+" - "+precio+"€";
-		
+		//return nombre+" - "+precio+"€";
+		return nombre;
 	}
 
 	@Override

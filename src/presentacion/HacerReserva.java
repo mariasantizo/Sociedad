@@ -1,4 +1,10 @@
 package presentacion;
+/**
+ * Ventana para los socios para hacer una reserva 
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -25,19 +31,6 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 
 public class HacerReserva extends JFrame {
-
-/*	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					HacerReserva frame = new HacerReserva();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
 
 	/**
 	 * Create the frame.
