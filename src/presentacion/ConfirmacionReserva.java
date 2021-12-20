@@ -85,6 +85,10 @@ public class ConfirmacionReserva extends JFrame {
 				GestorBD.insertReserva(r);
 				
 				JOptionPane.showMessageDialog(ConfirmacionReserva.this, "La reserva se ha realizado correctamente");
+				ConfirmacionReserva.this.dispose();	
+				MenuSocios menuSocio = new MenuSocios (ventanaAnterior, socio);
+				menuSocio.setVisible(true);
+				
 			}
 		});
 		boton.setBounds(283, 248, 240, 43);
