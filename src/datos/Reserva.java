@@ -1,6 +1,6 @@
 /**
  * Representa cada reserva de la sociedad (recogerá el socio, la mesa y la fecha de la reserva)
- * @author mariasantizo
+ * @author mariasantizo y malensanz
  * @version 1
  * @since 1
  */
@@ -117,7 +117,7 @@ public class Reserva implements Comparable <Reserva> {
 	
 	@Override
 	public String toString() {
-		return horario+" - Mesa: " + mesa.getCodigoMesa()+" - " +fecha.get(Calendar.YEAR) +" / " + fecha.get(Calendar.MONTH) +" / " + fecha.get(Calendar.DATE);	
+		return " - Mesa: " + mesa.getCodigoMesa()+" - " +fecha.get(Calendar.YEAR) +" / " + fecha.get(Calendar.MONTH) +" / " + fecha.get(Calendar.DATE);	
 	}
 
 	@Override

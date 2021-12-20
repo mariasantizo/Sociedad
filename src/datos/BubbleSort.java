@@ -1,5 +1,12 @@
 package datos;
 
+/**
+ * Representa el algoritmo de la burbuja visto en clase
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
+
 import java.util.ArrayList;
 
 public class BubbleSort <t extends Comparable<t>> implements Ordenable<t> {

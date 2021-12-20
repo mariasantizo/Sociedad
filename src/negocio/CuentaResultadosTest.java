@@ -1,3 +1,9 @@
+/**
+ * Test realizado para la clase "CuentaResultados"
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
 package negocio;
 
 import static org.junit.Assert.*;

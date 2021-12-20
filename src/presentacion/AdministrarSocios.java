@@ -1,3 +1,10 @@
+/**
+ * Ventana para los administradores, administran los socios, se pueden hacer diferentes operaciones
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
+
 package presentacion;
 
 import java.awt.BorderLayout;

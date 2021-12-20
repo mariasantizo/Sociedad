@@ -1,5 +1,12 @@
 package presentacion;
 
+/**
+ * Pantalla para el login de socios
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;

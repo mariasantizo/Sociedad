@@ -1,6 +1,6 @@
 /**
  * Representa cada mesa que se encuentra en la sociedad
- * @author mariasantizo
+ * @author mariasantizo y malensanz
  * @version 1
  * @since 1
  */

@@ -1,3 +1,10 @@
+/**
+ * Pantalla en la que se puede consultar las cuentas de la sociedad
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
+
 package presentacion;
 
 import java.awt.BorderLayout;

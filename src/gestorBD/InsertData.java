@@ -19,7 +19,7 @@ public class InsertData {
 	
 	/**
 	 * Inserta Socios en la BD
-	 * @author mariasantizo
+	 * @author mariasantizo y malensanz
 	 */
 	public static void insertSocio(String dni, String nombre, String apellido, int telefono, String direccion, String contrasena, int numeroSocio, String tipoCuota, int cuota) {
 		String name = "BaseDeDatos.db";

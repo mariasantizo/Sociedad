@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class CreateTable {
 	/**
 	 * Pasándole una sentencia de creación de tablas de sql, crea esa tabla en la base de datos
-	 * @author mariasantizo
+	 * @author mariasantizo y malensanz
 	 * @param sql
 	 */
 	public static void createTable(String sql) {

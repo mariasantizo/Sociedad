@@ -1,5 +1,12 @@
 package presentacion;
 
+/**
+ * Último paso para realizar la reserva, es la confirmación de la reserva según los datos introducidos anteriormente en otras pantallas
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -31,19 +38,6 @@ public class ConfirmacionReserva extends JFrame {
 
 	private JPanel contentPane;
 
-/*	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ConfirmacionReserva frame = new ConfirmacionReserva();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
 	/**
 	 * Create the frame.
 	 */
@@ -74,7 +68,6 @@ public class ConfirmacionReserva extends JFrame {
 		JButton boton = new JButton ("Confirmar reserva");
 		boton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				int numero = (int)(Math.random()*10000+1);
 				Calendar c= new GregorianCalendar();
 				
@@ -86,14 +79,16 @@ public class ConfirmacionReserva extends JFrame {
 				c.set(Calendar.MONTH, day);
 				c.set(Calendar.YEAR, day);
 				
-				int codigo=Integer.parseInt(list.getSelectedValue().toString());
-				
+				int codigo=Integer.parseInt(list.getSelectedValue().toString());	
 				Mesa m= new Mesa (codigo, 10);
-				
 				Reserva r= new Reserva (numero, socio, m, c, horario.toString());
 				GestorBD.insertReserva(r);
 				
 				JOptionPane.showMessageDialog(ConfirmacionReserva.this, "La reserva se ha realizado correctamente");
+				ConfirmacionReserva.this.dispose();
+				MenuSocios menuSocio = new MenuSocios (ventanaAnterior, socio);
+				menuSocio.setVisible(true);
+				
 			}
 		});
 		boton.setBounds(283, 248, 240, 43);

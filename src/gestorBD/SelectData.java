@@ -12,6 +12,7 @@ public class SelectData {
 	 /**
      * Connect to the test.db database
      * @return the Connection object
+     * @author mariasantizo y malensanz
      */
     private Connection connect()
     {

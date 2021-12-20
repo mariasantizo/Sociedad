@@ -1,5 +1,12 @@
 package presentacion;
 
+/**
+ * Pantalla que sigue el proceso de hacer una reserva, en este paso se elige la mesa
+ * @author mariasantizo y malensanz
+ * @version 1
+ * @since 1
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
