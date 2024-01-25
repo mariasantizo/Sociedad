@@ -1,5 +1,5 @@
 /**
- * Desciende de la clase Persona, representa cada administrador de la sociedad
+ * Desciende de la clase Persona, representa los administradores de la sociedad
  * @author mariasantizo y malensanz
  * @version 1
  * @since 1
