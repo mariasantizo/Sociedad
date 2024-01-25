@@ -1,7 +1,7 @@
 package datos;
 
 /**
- * Representa el algoritmo de la burbuja visto en clase
+ * Representa el algoritmo de la burbuja visto en clase de Programación
  * @author mariasantizo y malensanz
  * @version 1
  * @since 1
